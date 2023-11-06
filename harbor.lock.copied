@@ -1,0 +1,52 @@
+apiVersion: kbld.k14s.io/v1alpha1
+kind: Config
+minimumRequiredVersion: 0.37.4
+overrides:
+- image: goharbor/harbor-core:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:6412d679fdc3fd8834eb768e4c4ed6443e29718eb92476097b0f88eaab73cd23
+  preresolved: true
+- image: goharbor/harbor-db:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:cff528fada933112112b502bbc042de6870e84395c076ad1b873416930d4d8fe
+  preresolved: true
+- image: goharbor/harbor-jobservice:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:39435daedd0c80e923b1a558a8f67c5fb9d2e68476c6b5782287ea2464f0eccc
+  preresolved: true
+- image: goharbor/harbor-portal:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:2809c5735a70b33a6c7eccbad1cd6f6c171bc5c0ea5da9bcc6463e7749662c02
+  preresolved: true
+- image: goharbor/harbor-registryctl:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:cce272836449c500ec6b0c4c05072ef6aaf26ca7f057c715d12f38f4d4c0cdef
+  preresolved: true
+- image: goharbor/redis-photon:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:182e0164ff3ea80a7a939c2d5267aa977ad7ce648fb4ebe6230f1a4218873ead
+  preresolved: true
+- image: goharbor/registry-photon:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:8a26e8cb78628a24b42547e2bc832b65198b36106cfe22a033c39e95ad4390de
+  preresolved: true
+- image: goharbor/trivy-adapter-photon:v2.9.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:dc5b882a7db4ed9aff1ba9df19342d580ea25db875a70b87bf5ea92109ee9a29
+  preresolved: true
+- image: index.docker.io/goharbor/harbor-core@sha256:6412d679fdc3fd8834eb768e4c4ed6443e29718eb92476097b0f88eaab73cd23
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:6412d679fdc3fd8834eb768e4c4ed6443e29718eb92476097b0f88eaab73cd23
+  preresolved: true
+- image: index.docker.io/goharbor/harbor-db@sha256:cff528fada933112112b502bbc042de6870e84395c076ad1b873416930d4d8fe
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:cff528fada933112112b502bbc042de6870e84395c076ad1b873416930d4d8fe
+  preresolved: true
+- image: index.docker.io/goharbor/harbor-jobservice@sha256:39435daedd0c80e923b1a558a8f67c5fb9d2e68476c6b5782287ea2464f0eccc
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:39435daedd0c80e923b1a558a8f67c5fb9d2e68476c6b5782287ea2464f0eccc
+  preresolved: true
+- image: index.docker.io/goharbor/harbor-portal@sha256:2809c5735a70b33a6c7eccbad1cd6f6c171bc5c0ea5da9bcc6463e7749662c02
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:2809c5735a70b33a6c7eccbad1cd6f6c171bc5c0ea5da9bcc6463e7749662c02
+  preresolved: true
+- image: index.docker.io/goharbor/harbor-registryctl@sha256:cce272836449c500ec6b0c4c05072ef6aaf26ca7f057c715d12f38f4d4c0cdef
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:cce272836449c500ec6b0c4c05072ef6aaf26ca7f057c715d12f38f4d4c0cdef
+  preresolved: true
+- image: index.docker.io/goharbor/redis-photon@sha256:182e0164ff3ea80a7a939c2d5267aa977ad7ce648fb4ebe6230f1a4218873ead
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:182e0164ff3ea80a7a939c2d5267aa977ad7ce648fb4ebe6230f1a4218873ead
+  preresolved: true
+- image: index.docker.io/goharbor/registry-photon@sha256:8a26e8cb78628a24b42547e2bc832b65198b36106cfe22a033c39e95ad4390de
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:8a26e8cb78628a24b42547e2bc832b65198b36106cfe22a033c39e95ad4390de
+  preresolved: true
+- image: index.docker.io/goharbor/trivy-adapter-photon@sha256:dc5b882a7db4ed9aff1ba9df19342d580ea25db875a70b87bf5ea92109ee9a29
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle@sha256:dc5b882a7db4ed9aff1ba9df19342d580ea25db875a70b87bf5ea92109ee9a29
+  preresolved: true
