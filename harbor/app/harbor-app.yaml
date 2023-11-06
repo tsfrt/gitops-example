@@ -1,0 +1,30 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: harbor-helm
+  namespace: package-repo
+spec:
+  deploy:
+  - kapp:
+      intoNs: harbor-test
+  fetch:
+  - helmChart:
+      name: harbor
+      repository:
+        url: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts
+      version: 1.13.0
+  - git:
+      ref: origin/main
+      subPath: harbor/harbor-artifacts
+      url: https://github.com/tsfrt/gitops-example
+  serviceAccountName: default-ns-sa
+  template:
+  - helmTemplate:
+      path: 0/
+      valuesFrom:
+      - secretRef:
+          name: harbor-values
+  - kbld:
+      paths:
+      - 1/harbor.lock.copied
+      - '-'

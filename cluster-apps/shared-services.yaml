@@ -1,0 +1,20 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: shared-services
+spec:
+  fetch:
+  - git:
+      url: https://github.com/tsfrt/gitops-example
+      ref: origin/master
+  template:
+    - ytt:
+        ignoreUnknownComments: true
+        paths:
+        - common
+        - standard-repo
+        - cert-manager
+        - contour
+        - harbor/app
+  deploy:
+  - kapp: {}
