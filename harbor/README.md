@@ -35,9 +35,9 @@ spec:
       name: harbor/harbor
       repository: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor:1.13.0
   - git:
-      url: https://github.com/tsfrt/gitops
+      url: https://github.com/tsfrt/gitops-example
       ref: origin/main
-      subPath: harbor
+      subPath: harbor/harbor-artifacts
 
 
   template:
