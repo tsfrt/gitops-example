@@ -17,6 +17,14 @@ kbld pkg -f harbor.lock --output harbor-package.tar
 
 kbld unpkg -f harbor.lock --input harbor-package.tar --repository harbor.build.h2o-2-18171.h2o.vmware.com/charts/harbor-bundle --lock-output harbor.lock.copied
 
+helm show values harbor/harbor > harbor-values.yaml
+
+kubectl create secret generic harbor-values --from-file=harbor-values.yaml -o yaml  > harbor/harbor-values-secret.yaml
+
+kubectl create secret generic harbor-values --from-file=harbor-values.yaml -o yaml --dry-run=client > harbor/harbor-values-secret.yaml
+
+
+```yaml
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
@@ -40,3 +48,5 @@ spec:
 
    deploy:
   - kapp: {}
+
+```
