@@ -9,4 +9,4 @@ spec:
     refName: contour.tanzu.vmware.com
     versionSelection:
       constraints: 1.24.4+vmware.1-tkg.1
-  serviceAccountName: default-ns-sa
+  serviceAccountName: kapp-gitops-sa

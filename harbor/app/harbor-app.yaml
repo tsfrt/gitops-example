@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
@@ -6,7 +8,7 @@ metadata:
 spec:
   deploy:
   - kapp:
-      intoNs: harbor-test
+      intoNs: #@ data.values.harbor_namespace
   fetch:
   - helmChart:
       name: harbor
@@ -17,7 +19,7 @@ spec:
       ref: origin/main
       subPath: harbor/harbor-artifacts
       url: https://github.com/tsfrt/gitops-example
-  serviceAccountName: default-ns-sa
+  serviceAccountName: kapp-gitops-sa  
   template:
   - sops:
       age:
