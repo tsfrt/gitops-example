@@ -1,7 +1,8 @@
+#@ load("@ytt:data", "data")
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
   labels:
-    kubernetes.io/metadata.name: harbor-test
-  name: harbor-test
+    kubernetes.io/metadata.name: #@ data.values.harbor_namespace
+  name: #@ data.values.harbor_namespace

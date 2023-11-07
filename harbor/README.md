@@ -58,7 +58,8 @@ spec:
       ref: origin/main
       subPath: harbor/harbor-artifacts
       url: https://github.com/tsfrt/gitops-example
-  serviceAccountName: kapp-gitops-sa  template:
+  serviceAccountName: kapp-gitops-sa
+  template:
   - sops:
       age:
         privateKeysSecretRef:
