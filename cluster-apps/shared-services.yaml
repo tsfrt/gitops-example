@@ -10,13 +10,16 @@ spec:
       url: https://github.com/tsfrt/gitops-example
       ref: origin/main
   template:
-  - ytt:
-      ignoreUnknownComments: true
-      paths:
-      - common
   - sops:
       age:
         privateKeysSecretRef:
           name: enc-key
+  - ytt:
+      ignoreUnknownComments: true
+      paths:
+      - common
+      - cert-manager
+      - contour
+      - harbor/app
   deploy:
   - kapp: {}

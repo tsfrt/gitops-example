@@ -2,7 +2,7 @@ apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageRepository
 metadata:
   name: tanzu-standard
-  namespace: pacakge-repo
+  namespace: package-repo
 spec:
   fetch:
     imgpkgBundle:

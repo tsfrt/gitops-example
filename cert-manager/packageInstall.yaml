@@ -2,7 +2,7 @@ apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
   name: cert-manager
-  namespace: pacakge-repo
+  namespace: package-repo
 spec:
   packageRef:
     refName: cert-manager.tanzu.vmware.com
