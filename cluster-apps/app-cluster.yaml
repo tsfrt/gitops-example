@@ -6,7 +6,7 @@ spec:
   fetch:
   - git:
       url: https://github.com/tsfrt/gitops-example
-      ref: origin/master
+      ref: origin/main
   template:
     - ytt:
         ignoreUnknownComments: true

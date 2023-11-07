@@ -24,6 +24,10 @@ spec:
       valuesFrom:
       - secretRef:
           name: harbor-values
+  - sops:
+      pgp:
+        privateKeysSecretRef:
+          name: enc-key
   - kbld:
       paths:
       - 1/harbor.lock.copied

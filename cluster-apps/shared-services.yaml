@@ -2,11 +2,13 @@ apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
   name: shared-services
+  namespace: tkg-system
 spec:
+  serviceAccountName: default-ns-sa
   fetch:
   - git:
       url: https://github.com/tsfrt/gitops-example
-      ref: origin/master
+      ref: origin/main
   template:
     - ytt:
         ignoreUnknownComments: true
