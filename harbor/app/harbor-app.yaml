@@ -19,15 +19,15 @@ spec:
       url: https://github.com/tsfrt/gitops-example
   serviceAccountName: default-ns-sa
   template:
+  - sops:
+      pgp:
+        privateKeysSecretRef:
+          name: enc-key
   - helmTemplate:
       path: 0/
       valuesFrom:
       - secretRef:
           name: harbor-values
-  - sops:
-      pgp:
-        privateKeysSecretRef:
-          name: enc-key
   - kbld:
       paths:
       - 1/harbor.lock.copied
