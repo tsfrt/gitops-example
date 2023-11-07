@@ -20,7 +20,7 @@ spec:
   serviceAccountName: default-ns-sa
   template:
   - sops:
-      pgp:
+      age:
         privateKeysSecretRef:
           name: enc-key
   - helmTemplate:
