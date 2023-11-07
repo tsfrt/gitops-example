@@ -18,5 +18,9 @@ spec:
         - cert-manager
         - contour
         - harbor/app
+    - sops:
+        age:
+          privateKeysSecretRef:
+            name: enc-key
   deploy:
   - kapp: {}
