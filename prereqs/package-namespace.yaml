@@ -1,4 +1,3 @@
-#@ load("@ytt:data", "data")
 ---
 apiVersion: v1
 kind: Namespace
@@ -10,12 +9,14 @@ metadata:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: kapp-gitops-sa  namespace: package-repo
+  name: kapp-gitops-sa  
+  namespace: package-repo
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: kapp-gitops-sa  namespace: tkg-system
+  name: kapp-gitops-sa  
+  namespace: tkg-system
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
@@ -32,9 +33,11 @@ metadata:
   name: default-ns-role-binding
 subjects:
 - kind: ServiceAccount
-  name: kapp-gitops-sa  namespace: package-repo
+  name: kapp-gitops-sa  
+  namespace: package-repo
 - kind: ServiceAccount
-  name: kapp-gitops-sa  namespace: tkg-system
+  name: kapp-gitops-sa  
+  namespace: tkg-system
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
