@@ -11,9 +11,11 @@ spec:
     - ytt:
         ignoreUnknownComments: true
         paths:
-        - common
         - standard-repo
         - cert-manager
         - contour
+        valuesFrom:
+          - secretRef:
+              name: cluster-data
   deploy:
   - kapp: {}
