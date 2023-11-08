@@ -8,4 +8,4 @@ spec:
     refName: cert-manager.tanzu.vmware.com
     versionSelection:
       constraints: 1.11.1+vmware.1-tkg.1
-  serviceAccountName: default-ns-sa
+  serviceAccountName: kapp-gitops-sa
