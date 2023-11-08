@@ -30,6 +30,11 @@ spec:
       valuesFrom:
       - secretRef:
           name: harbor-values
+  - ytt:
+      ignoreUnknownComments: true
+      paths:
+      - cluster-config/shared-services
+      - harbor/harbor-artifacts
   - kbld:
       paths:
       - 1/harbor.lock.copied
