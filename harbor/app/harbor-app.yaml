@@ -33,8 +33,8 @@ spec:
   - ytt:
       ignoreUnknownComments: true
       paths:
-      - cluster-config/shared-services
-      - harbor/harbor-artifacts
+      - 1/cluster-config/shared-services
+      - 1/harbor/harbor-artifacts
   - kbld:
       paths:
       - 1/harbor.lock.copied
