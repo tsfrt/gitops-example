@@ -1,6 +1,0 @@
-#@data/values-schema
----
-name: shared-services
-harbor_namespace: harbor-test
-ingress_domain: ss.h2o-2-18171.h2o.vmware.com
-cluster_issuer: cluster_ca
