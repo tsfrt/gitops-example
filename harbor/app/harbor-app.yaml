@@ -30,9 +30,6 @@ spec:
       valuesFrom:
       - secretRef:
           name: harbor-values
-  - ytt:
-    ignoreUnknownComments: true
-    valuesFrom:
       - secretRef:
           name: cluster-data
   - kbld:
