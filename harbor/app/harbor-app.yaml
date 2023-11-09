@@ -25,16 +25,16 @@ spec:
       age:
         privateKeysSecretRef:
           name: enc-key
-  - ytt:
-    ignoreUnknownComments: true
-    valuesFrom:
-      - secretRef:
-          name: cluster-data
   - helmTemplate:
       path: 0/
       valuesFrom:
       - secretRef:
           name: harbor-values
+  - ytt:
+    ignoreUnknownComments: true
+    valuesFrom:
+      - secretRef:
+          name: cluster-data
   - kbld:
       paths:
       - 1/harbor.lock.copied
