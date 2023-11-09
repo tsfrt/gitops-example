@@ -1,18 +1,18 @@
 ---
 apiVersion: v1
 data:
-  data.yaml: I0BkYXRhL3ZhbHVlcy1zY2hlbWEKLS0tCm5hbWU6IHNoYXJlZC1zZXJ2aWNlcwpoYXJib3JfbmFtZXNwYWNlOiBoYXJib3ItdGVzdAppbmdyZXNzX2RvbWFpbjogc3MuaDJvLTItMTgxNzEuaDJvLnZtd2FyZS5jb20KY2x1c3Rlcl9pc3N1ZXI6IGNsdXN0ZXJfY2E=
+  data.yaml: LS0tCm5hbWU6IHNoYXJlZC1zZXJ2aWNlcwpoYXJib3JfbmFtZXNwYWNlOiBoYXJib3ItdGVzdAppbmdyZXNzX2RvbWFpbjogc3MuaDJvLTItMTgxNzEuaDJvLnZtd2FyZS5jb20KY2x1c3Rlcl9pc3N1ZXI6IGNsdXN0ZXJfY2E=
 kind: Secret
-namespace: tkg-system
 metadata:
   creationTimestamp: null
   name: cluster-data
+  namespace: package-repo
 ---
 apiVersion: v1
 data:
-  data.yaml: I0BkYXRhL3ZhbHVlcy1zY2hlbWEKLS0tCm5hbWU6IHNoYXJlZC1zZXJ2aWNlcwpoYXJib3JfbmFtZXNwYWNlOiBoYXJib3ItdGVzdAppbmdyZXNzX2RvbWFpbjogc3MuaDJvLTItMTgxNzEuaDJvLnZtd2FyZS5jb20KY2x1c3Rlcl9pc3N1ZXI6IGNsdXN0ZXJfY2E=
+  data.yaml: LS0tCm5hbWU6IHNoYXJlZC1zZXJ2aWNlcwpoYXJib3JfbmFtZXNwYWNlOiBoYXJib3ItdGVzdAppbmdyZXNzX2RvbWFpbjogc3MuaDJvLTItMTgxNzEuaDJvLnZtd2FyZS5jb20KY2x1c3Rlcl9pc3N1ZXI6IGNsdXN0ZXJfY2E=
 kind: Secret
-namespace: package-repo
 metadata:
   creationTimestamp: null
   name: cluster-data
+  namespace: tkg-system
