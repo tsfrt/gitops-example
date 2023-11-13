@@ -5,4 +5,5 @@ kind: Namespace
 metadata:
   labels:
     kubernetes.io/metadata.name: #@ data.values.harbor_namespace
+    pod-security.kubernetes.io/enforce: privileged
   name: #@ data.values.harbor_namespace
