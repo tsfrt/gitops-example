@@ -25,15 +25,6 @@ spec:
       age:
         privateKeysSecretRef:
           name: enc-key
-  - ytt:
-    inline: 
-      pathsFrom:
-        - secretRef:
-            name: cluster-data
-            directoryPath: dir
-        - sercretRef:
-            name: harbor-values
-            directoryPath: dir
   - helmTemplate:
       path: 0/
       valuesFrom:

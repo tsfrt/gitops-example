@@ -21,8 +21,5 @@ spec:
       - cert-manager
       - contour
       - harbor/app
-      valuesFrom:
-        - secretRef:
-            name: cluster-data
   deploy:
   - kapp: {}
