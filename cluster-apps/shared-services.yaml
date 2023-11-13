@@ -18,6 +18,7 @@ spec:
       ignoreUnknownComments: true
       paths:
       - cluster-config/shared-services
+      - standard-repo
       - cert-manager
       - contour
       - harbor/app
