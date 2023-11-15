@@ -30,7 +30,11 @@ spec:
       valuesFrom:
       - secretRef:
           name: harbor-values
-      
+  - ytt:
+      inline:
+        pathsFrom:
+        - secretRef:
+            name: image-pull-overlay
   - kbld:
       paths:
       - 1/harbor.lock.copied

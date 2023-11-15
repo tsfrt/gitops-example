@@ -17,6 +17,7 @@ spec:
   - ytt:
       ignoreUnknownComments: true
       paths:
+      - common
       - cluster-config/shared-services
       - standard-repo
       - cert-manager
