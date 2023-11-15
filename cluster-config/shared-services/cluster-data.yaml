@@ -1,7 +1,8 @@
+#@ load("@ytt:data", "data")
 ---
 apiVersion: v1
 data:
-  data.yaml: LS0tCm5hbWU6IHNoYXJlZC1zZXJ2aWNlcwpoYXJib3JfbmFtZXNwYWNlOiBoYXJib3ItdGVzdAppbmdyZXNzX2RvbWFpbjogc3MuaDJvLTItMTgxNzEuaDJvLnZtd2FyZS5jb20KY2x1c3Rlcl9pc3N1ZXI6IGNsdXN0ZXJfY2E=
+  data.yaml: #@ data.read("data.yaml")
 kind: Secret
 metadata:
   creationTimestamp: null
@@ -10,7 +11,7 @@ metadata:
 ---
 apiVersion: v1
 data:
-  data.yaml: LS0tCm5hbWU6IHNoYXJlZC1zZXJ2aWNlcwpoYXJib3JfbmFtZXNwYWNlOiBoYXJib3ItdGVzdAppbmdyZXNzX2RvbWFpbjogc3MuaDJvLTItMTgxNzEuaDJvLnZtd2FyZS5jb20KY2x1c3Rlcl9pc3N1ZXI6IGNsdXN0ZXJfY2E=
+  data.yaml: #@ data.read("data.yaml")
 kind: Secret
 metadata:
   creationTimestamp: null
