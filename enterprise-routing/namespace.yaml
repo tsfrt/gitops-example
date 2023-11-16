@@ -1,0 +1,9 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+    kubernetes.io/metadata.name: enterprise-routing
+  name: enterprise-routing

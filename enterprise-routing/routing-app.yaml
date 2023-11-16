@@ -1,0 +1,25 @@
+#@ load("@ytt:data", "data")
+---
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: harbor-helm
+  namespace: package-repo
+spec:
+  deploy:
+  - kapp:
+      intoNs: #@ data.values.harbor_namespace
+  fetch:
+  - git:
+      ref: origin/main
+      subPath: enterprise-routing
+      url: https://github.com/tsfrt/ingress-example
+  serviceAccountName: kapp-gitops-sa  
+  template:
+  - sops:
+      age:
+        privateKeysSecretRef:
+          name: enc-key
+  - kbld:
+      paths:
+      - '-'

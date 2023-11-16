@@ -24,5 +24,6 @@ spec:
       - contour
       - harbor/app
       - fluentbit
+      - enterprise-routing
   deploy:
   - kapp: {}
