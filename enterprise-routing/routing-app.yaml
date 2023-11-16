@@ -17,6 +17,5 @@ spec:
       age:
         privateKeysSecretRef:
           name: enc-key
-  - kbld:
-      paths:
-      - '-'
+  - kbld: {}
+      
