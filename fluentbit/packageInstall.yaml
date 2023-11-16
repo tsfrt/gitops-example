@@ -26,9 +26,28 @@ stringData:
       config:
         outputs: |
           [OUTPUT]
-            Name                 syslog
-            Match                *
-            Host                 192.168.100.10
-            Port                 514
-            Mode                 tcp
+            Name   syslog
+            Match  kube.*
+            Host   192.168.100.10 
+            Port   514
+            Mode   tcp
             Syslog_Format        rfc5424
+            Syslog_Hostname_key  tkg_cluster
+            Syslog_Appname_key   pod_name
+            Syslog_Procid_key    container_name
+            Syslog_Message_key   message
+            Syslog_SD_key        k8s
+            Syslog_SD_key        labels
+            Syslog_SD_key        annotations
+            Syslog_SD_key        tkg
+          [OUTPUT]
+            Name   syslog
+            Match  kube_systemd.*
+            Host   192.168.100.10
+            Port   514
+            Mode   tcp
+            Syslog_Format        rfc5424
+            Syslog_Hostname_key  tkg_cluster
+            Syslog_Appname_key   tkg_instance
+            Syslog_Message_key   MESSAGE
+            Syslog_SD_key        systemd
