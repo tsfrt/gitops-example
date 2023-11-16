@@ -1,0 +1,32 @@
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: fluentbit
+  namespace: package-repo
+spec:
+  packageRef:
+    refName: fluentbit.tanzu.vmware.com
+    versionSelection:
+      constraints: 2.1.2+vmware.1-tkg.1 
+  values:
+  - secretRef:
+      name: fluentbit-values
+  serviceAccountName: kapp-gitops-sa
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: fluentbit-values
+stringData:
+  values.yml: |
+    ---
+    fluent_bit:
+      config:
+        outputs: |
+          [OUTPUT]
+            name                 syslog
+            match                *
+            host                 192.168.100.10
+            port                 514
+            mode                 tcp
