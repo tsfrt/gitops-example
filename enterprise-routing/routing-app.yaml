@@ -18,4 +18,5 @@ spec:
         privateKeysSecretRef:
           name: enc-key
   - kbld: {}
+  - deploy: {}
       
