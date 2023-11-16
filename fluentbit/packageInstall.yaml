@@ -52,45 +52,45 @@ stringData:
             Syslog_Message_key   MESSAGE
             Syslog_SD_key        systemd
         inputs: |
-         [INPUT]
-           Name              tail
-           Tag               kube.*
-           Path              /var/log/containers/*.log
-           Parser            cri
-           DB                /var/log/flb_kube.db
-           Mem_Buf_Limit     5MB
-           Skip_Long_Lines   On
-           Refresh_Interval  10   
-   
-         [INPUT]
-           Name                systemd
-           Tag                 kube_systemd.*
-           Path                /var/log/journal
-           DB                  /var/log/flb_kube_systemd.db
-           Systemd_Filter      _SYSTEMD_UNIT=kubelet.service
-           Systemd_Filter      _SYSTEMD_UNIT=containerd.service
-           Read_From_Tail      On
-           Strip_Underscores   On   
-   
-         # Optional - enable audit logging
-         [INPUT]
-           Name              tail
-           Tag               apiserver_audit.*
-           Path              /var/log/kubernetes/audit.log
-           Parser            json
-           DB                /var/log/flb_kube_audit.db
-           Mem_Buf_Limit     50MB
-           Refresh_Interval  10
-           Skip_Long_Lines   On
-         [INPUT]
-           Name              tail
-           Tag               audit.*
-           Path              /var/log/audit/audit.log
-           Parser            logfmt
-           DB                /var/log/flb_system_audit.db
-           Mem_Buf_Limit     50MB
-           Refresh_Interval  10
-           Skip_Long_Lines   On
+          [INPUT]
+            Name              tail
+            Tag               kube.*
+            Path              /var/log/containers/*.log
+            Parser            cri
+            DB                /var/log/flb_kube.db
+            Mem_Buf_Limit     5MB
+            Skip_Long_Lines   On
+            Refresh_Interval  10   
+     
+          [INPUT]
+            Name                systemd
+            Tag                 kube_systemd.*
+            Path                /var/log/journal
+            DB                  /var/log/flb_kube_systemd.db
+            Systemd_Filter      _SYSTEMD_UNIT=kubelet.service
+            Systemd_Filter      _SYSTEMD_UNIT=containerd.service
+            Read_From_Tail      On
+            Strip_Underscores   On   
+    
+          # Optional - enable audit logging
+          [INPUT]
+            Name              tail
+            Tag               apiserver_audit.*
+            Path              /var/log/kubernetes/audit.log
+            Parser            json
+            DB                /var/log/flb_kube_audit.db
+            Mem_Buf_Limit     50MB
+            Refresh_Interval  10
+            Skip_Long_Lines   On
+          [INPUT]
+            Name              tail
+            Tag               audit.*
+            Path              /var/log/audit/audit.log
+            Parser            logfmt
+            DB                /var/log/flb_system_audit.db
+            Mem_Buf_Limit     50MB
+            Refresh_Interval  10
+            Skip_Long_Lines   On
         filters: |
           [FILTER]
             Name                kubernetes
@@ -104,15 +104,15 @@ stringData:
             K8S-Logging.Parser  On
             K8S-Logging.Exclude On
            # Optional - uncomment if using Syslog output plugin
-           [FILTER]
-             Name                  modify
-             Match                 kube.*
-             Copy                  kubernetes k8s
-           [FILTER]
-             Name                  nest
-             Match                 kube.*
-             Operation             lift
-             Nested_Under          kubernetes
+          [FILTER]
+            Name                  modify
+            Match                 kube.*
+            Copy                  kubernetes k8s
+          [FILTER]
+            Name                  nest
+            Match                 kube.*
+            Operation             lift
+            Nested_Under          kubernetes
         parsers: |
           # see https://github.com/fluent/fluent-bit/blob/v1.7.5/conf/parsers.conf
           [PARSER]
