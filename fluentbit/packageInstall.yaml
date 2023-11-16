@@ -6,7 +6,7 @@ metadata:
   namespace: package-repo
 spec:
   packageRef:
-    refName: fluentbit.tanzu.vmware.com
+    refName: fluent-bit.tanzu.vmware.com
     versionSelection:
       constraints: 2.1.2+vmware.1-tkg.1 
   values:
