@@ -11,7 +11,7 @@ Create your encryption key and secret
 ```bash
 age-keygen -o key.txt
 
-kubectl create secret generic enc-key --from-file==key-txt.yaml --dry-run=client -o yaml > enc-key.yaml
+kubectl create secret generic enc-key --from-file==key-txt --dry-run=client -o yaml > enc-key.yaml
 ```
 
 Take the output of this and create a yaml secret like this (you could use secretgen to duplicate, but should just be these 2 namespaces)
