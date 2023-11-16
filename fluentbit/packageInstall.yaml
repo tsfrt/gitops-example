@@ -71,7 +71,6 @@ stringData:
             Systemd_Filter      _SYSTEMD_UNIT=containerd.service
             Read_From_Tail      On
             Strip_Underscores   On   
-    
           [INPUT]
             Name              tail
             Tag               apiserver_audit.*
@@ -102,15 +101,17 @@ stringData:
             Merge_Log_Key       log_processed
             K8S-Logging.Parser  On
             K8S-Logging.Exclude On
+          
           [FILTER]
-            Name                  modify
-            Match                 kube.*
-            Copy                  kubernetes k8s
+            Name                modify
+            Match               kube.*
+            Copy                kubernetes k8s
+          
           [FILTER]
-            Name                  nest
-            Match                 kube.*
-            Operation             lift
-            Nested_Under          kubernetes
+            Name                nest
+            Match               kube.*
+            Operation           lift
+            Nested_Under        kubernetes
         parsers: |
           [PARSER]
             Name   apache
