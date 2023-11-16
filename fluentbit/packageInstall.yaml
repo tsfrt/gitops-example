@@ -72,7 +72,6 @@ stringData:
             Read_From_Tail      On
             Strip_Underscores   On   
     
-          # Optional - enable audit logging
           [INPUT]
             Name              tail
             Tag               apiserver_audit.*
@@ -103,7 +102,6 @@ stringData:
             Merge_Log_Key       log_processed
             K8S-Logging.Parser  On
             K8S-Logging.Exclude On
-           # Optional - uncomment if using Syslog output plugin
           [FILTER]
             Name                  modify
             Match                 kube.*
@@ -114,7 +112,6 @@ stringData:
             Operation             lift
             Nested_Under          kubernetes
         parsers: |
-          # see https://github.com/fluent/fluent-bit/blob/v1.7.5/conf/parsers.conf
           [PARSER]
             Name   apache
             Format regex
