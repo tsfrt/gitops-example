@@ -23,5 +23,6 @@ spec:
       - cert-manager
       - contour
       - harbor/app
+      - fluentbit
   deploy:
   - kapp: {}
