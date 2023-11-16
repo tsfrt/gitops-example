@@ -6,9 +6,6 @@ metadata:
   name: harbor-helm
   namespace: package-repo
 spec:
-  deploy:
-  - kapp:
-      intoNs: #@ data.values.harbor_namespace
   fetch:
   - git:
       ref: origin/main
