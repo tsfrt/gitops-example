@@ -17,6 +17,9 @@ spec:
       age:
         privateKeysSecretRef:
           name: enc-key
+  - ytt:
+     paths:
+        - "-"
   - kbld: {}
   deploy:
   - kapp: {}
