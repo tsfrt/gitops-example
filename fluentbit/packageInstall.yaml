@@ -32,11 +32,3 @@ stringData:
             Port                 514
             Mode                 tcp
             Syslog_Format        rfc5424
-            Syslog_Hostname_key  tkg_cluster
-            Syslog_Appname_key   pod_name
-            Syslog_Procid_key    container_name
-            Syslog_SD_key        annotations
-            Syslog_SD_key        labels
-            Syslog_SD_key        k8s
-            Syslog_SD_key        tkg
-            Syslog_Message_key   message
