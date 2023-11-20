@@ -1,0 +1,28 @@
+---
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: #@ data.values.name
+  namespace: package-repo
+  serviceAccountName: kapp-gitops-sa
+  fetch:
+    - git:
+        url: #@ data.values.gitops_repo
+        ref: #@ data.values.gitops_ref
+  template:
+    - sops:
+        age:
+          privateKeysSecretRef:
+            name: enc-key
+    - ytt:
+        ignoreUnknownComments: true
+        paths:
+        #@ for/end package in data.values.packages:
+        - #@ package
+        valuesFrom:
+          - secretRef:
+              name: cluster-data
+        fileMarks:
+        - data.yaml:type=data
+  deploy:
+    - kapp: {}

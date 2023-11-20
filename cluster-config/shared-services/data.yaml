@@ -1,6 +1,12 @@
-#@data/values
 ---
 name: shared-services
 harbor_namespace: harbor-test
 ingress_domain: ss.h2o-2-18171.h2o.vmware.com
 cluster_issuer: cluster_ca
+gitops_repo: https://github.com/tsfrt/gitops-example
+gitops_ref: origin/main
+packages:
+- cert-manager
+- contour
+- harbor/app
+- fluentbit
