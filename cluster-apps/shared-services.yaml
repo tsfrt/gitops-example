@@ -23,6 +23,6 @@ spec:
           - secretRef:
               name: cluster-data
         fileMarks:
-        - data.yaml:exclude=true
+        - data.yaml:type=data
   deploy:
     - kapp: {}
