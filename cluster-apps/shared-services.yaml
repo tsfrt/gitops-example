@@ -4,23 +4,25 @@ metadata:
   name: shared-services
   namespace: tkg-system
 spec:
-  serviceAccountName: kapp-gitops-sa  
+  serviceAccountName: kapp-gitops-sa
   fetch:
-  - git:
-      url: https://github.com/tsfrt/gitops-example
-      ref: origin/main
+    - git:
+        url: https://github.com/tsfrt/gitops-example
+        ref: origin/main
   template:
-  - sops:
-      age:
-        privateKeysSecretRef:
-          name: enc-key
-  - ytt:
-      ignoreUnknownComments: true
-      paths:
-      - common
-      - cluster-config/shared-services
-      valuesFrom:
+    - sops:
+        age:
+          privateKeysSecretRef:
+            name: enc-key
+    - ytt:
+        ignoreUnknownComments: true
+        paths:
+          - common
+          - cluster-config/shared-services
+        valuesFrom:
           - secretRef:
-              name: cluster-paths
+              name: cluster-data
+        fileMarks:
+        - data.yaml:exclude=true
   deploy:
-  - kapp: {}
+    - kapp: {}
