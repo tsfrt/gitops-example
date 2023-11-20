@@ -19,9 +19,6 @@ spec:
         paths:
           - common
           - cluster-config/shared-services
-        valuesFrom:
-          - secretRef:
-              name: cluster-data
         fileMarks:
         - data.yaml:exclude=true
   deploy:
