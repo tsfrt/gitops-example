@@ -19,7 +19,5 @@ spec:
         paths:
           - common
           - cluster-config/shared-services
-        fileMarks:
-        - data.yaml:exclude=true
   deploy:
     - kapp: {}

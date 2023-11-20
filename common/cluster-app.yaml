@@ -6,6 +6,7 @@ metadata:
   name: #@ data.values.name
   namespace: package-repo
   serviceAccountName: kapp-gitops-sa
+spec:
   fetch:
     - git:
         url: #@ data.values.gitops_repo
