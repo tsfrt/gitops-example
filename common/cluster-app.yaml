@@ -24,7 +24,5 @@ spec:
         valuesFrom:
           - secretRef:
               name: cluster-data
-        fileMarks:
-        - data.yaml:type=data
   deploy:
     - kapp: {}
