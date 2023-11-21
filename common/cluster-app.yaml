@@ -31,7 +31,8 @@ spec:
     - ytt:
         inline:
           pathsFrom:
-            - secretRef: cluster-data
+            - secretRef: 
+              name: cluster-data
         ignoreUnknownComments: true
         paths:
         #@ for/end package in data.values.packages:
