@@ -29,13 +29,12 @@ spec:
           privateKeysSecretRef:
             name: enc-key
     - ytt:
-        inline:
-          pathsFrom:
-            - secretRef: 
-                name: cluster-data
         ignoreUnknownComments: true
         paths:
         #@ for/end package in data.values.packages:
         - #@ package
+        valuesFrom:
+          - secretRef:
+              name: cluster-data
   deploy:
     - kapp: {}
