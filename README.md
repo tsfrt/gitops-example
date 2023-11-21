@@ -49,6 +49,8 @@ kubectl apply -f enc-key.yaml
 
 Create any required cluster specific cluster-config (for example encrypted harbor values)
 
+check out a more detailed process for preparing a helm deployment [Harbor Helm](https://github.com/tsfrt/gitops-example/blob/main/harbor/README.md)
+
 ```bash
 #this is an example for a profile with harbor
 #there could be any number of cluster specific configurations 
