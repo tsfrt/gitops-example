@@ -59,7 +59,7 @@ SOPS_AGE_KEY_FILE=/Users/seufertt/gitops/private/key.txt sops --encrypt --age <p
 cp harbor-values.sops.yaml cluster-config/<profile name>
 ```
 
-Check out your cluster-app profile, does it have all the services you want
+Create your cluster-app profile
 
 ```yaml
 ---
@@ -93,6 +93,33 @@ spec:
   deploy:
     - kapp: {}
 
+```
+
+Configure your cluster
+
+data.yaml - common values that get used across package installs and for defining resource names
+
+```yaml
+
+---
+name: shared-services
+harbor_namespace: harbor-test
+ingress_domain: ss.h2o-2-18171.h2o.vmware.com
+cluster_issuer: cluster_ca
+gitops_repo: https://github.com/tsfrt/gitops-example
+gitops_ref: origin/main
+
+```
+
+packages.yaml - specify which packages should be deployed to the clusters.  Keep in mind that you will need to populate any common data values in data.yaml or 
+drop a cluster specific values file in your cluster config folder.  Any thing with secrets should be encrypted in its own values file. (see harbor example above)
+
+```yaml
+packages:
+- standard-repo
+- cert-manager
+- contour
+- fluentbit
 ```
 
 If so, apply the profile
