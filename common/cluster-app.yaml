@@ -5,8 +5,8 @@ kind: App
 metadata:
   name: #@ data.values.name
   namespace: package-repo
-  serviceAccountName: kapp-gitops-sa
 spec:
+  serviceAccountName: kapp-gitops-sa
   fetch:
     - git:
         url: #@ data.values.gitops_repo
