@@ -15,11 +15,12 @@ spec:
           privateKeysSecretRef:
             name: enc-key
     - ytt:
+        fileMarks:
+        - data.yaml:type=data
         ignoreUnknownComments: true
         paths:
           - common
           - cluster-config/shared-services
-        fileMarks:
-        - data.yaml:type=data
+        
   deploy:
     - kapp: {}
