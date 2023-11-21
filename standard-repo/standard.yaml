@@ -6,6 +6,6 @@ metadata:
 spec:
   fetch:
     imgpkgBundle:
-      image: harbor.build.h2o-2-18171.h2o.vmware.com/packages/standard:v2023.7.13_update.2
+      image: #@ data.values.registry_credentials+"/packages/standard:v2023.7.13_update.2"
       secretRef:
         name: harbor-registry-creds

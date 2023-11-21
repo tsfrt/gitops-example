@@ -1,7 +1,11 @@
 ---
 name: app-cluster1
 ingress_domain: app1.h2o-2-18171.h2o.vmware.com
+ingress_ip: 192.168.103.165
 cluster_issuer: cluster_ca
+image_registry: harbor.build.h2o-2-18171.h2o.vmware.com
+credentials_secret: harbor-registry-creds
+service_account_name: kapp-gitops-sa
 gitops_repo: https://github.com/tsfrt/gitops-example
 gitops_ref: origin/main
 

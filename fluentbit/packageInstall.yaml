@@ -12,7 +12,7 @@ spec:
   values:
   - secretRef:
       name: fluentbit-values
-  serviceAccountName: kapp-gitops-sa
+  serviceAccountName: #@ data.values.service_account_name
 ---
 apiVersion: v1
 kind: Secret

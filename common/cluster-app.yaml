@@ -18,7 +18,7 @@ metadata:
   annotations:
     kapp.k14s.io/change-rule: "upsert after upserting cluster-secrets"
 spec:
-  serviceAccountName: kapp-gitops-sa
+  serviceAccountName: #@ data.values.service_account_name
   fetch:
     - git:
         url: #@ data.values.gitops_repo

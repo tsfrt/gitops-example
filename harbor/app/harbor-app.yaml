@@ -15,13 +15,13 @@ spec:
       repository:
         url: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts
         secretRef:
-            name: harbor-registry-creds
+            name: #@ data.values.registry_credentials
       version: 1.13.0
   - git:
       ref: origin/main
       subPath: harbor/harbor-artifacts
       url: https://github.com/tsfrt/gitops-example
-  serviceAccountName: kapp-gitops-sa  
+  serviceAccountName: #@ data.values.service_account_name
   template:
   - sops:
       age:

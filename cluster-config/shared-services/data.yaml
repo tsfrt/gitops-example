@@ -1,7 +1,11 @@
 ---
 name: shared-services
 harbor_namespace: harbor-test
+image_registry: harbor.build.h2o-2-18171.h2o.vmware.com
+credentials_secret: harbor-registry-creds
+service_account_name: kapp-gitops-sa
 ingress_domain: ss.h2o-2-18171.h2o.vmware.com
+ingress_ip: 192.168.103.164
 cluster_issuer: cluster_ca
 gitops_repo: https://github.com/tsfrt/gitops-example
 gitops_ref: origin/main
