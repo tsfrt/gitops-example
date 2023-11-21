@@ -1,5 +1,14 @@
 #@ load("@ytt:data", "data")
 ---
+apiVersion: v1
+kind: Secret
+data:
+  data.yaml: "e30K"
+metadata:
+  creationTimestamp: null
+  name: cluster-data
+  namespace: package-repo
+---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:

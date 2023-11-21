@@ -43,3 +43,13 @@ roleRef:
   kind: ClusterRole
   name: default-ns-role
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-data
+  namespace: tkg-system
+  annotations:
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: "e30K"
+

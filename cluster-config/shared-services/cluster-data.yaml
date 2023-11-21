@@ -8,4 +8,4 @@ data:
 metadata:
   creationTimestamp: null
   name: cluster-data
-  namespace: package-repo
+  namespace: tkg-system

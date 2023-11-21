@@ -17,15 +17,12 @@ spec:
           privateKeysSecretRef:
             name: enc-key
     - ytt:
-        inline:
-          paths:
-            #@yaml/text-templated-strings
-            data.yaml: |
-              #@data/values
-              (@= data.read("data.yaml") @)
         ignoreUnknownComments: true
         paths:
           - common
           - cluster-config/shared-services 
+        valuesFrom:
+          - secretRef:
+              name: cluster-data
   deploy:
     - kapp: {}
