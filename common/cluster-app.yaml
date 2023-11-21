@@ -32,7 +32,7 @@ spec:
         inline:
           pathsFrom:
             - secretRef: 
-              name: cluster-data
+                name: cluster-data
         ignoreUnknownComments: true
         paths:
         #@ for/end package in data.values.packages:
