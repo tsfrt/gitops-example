@@ -115,6 +115,7 @@ packages.yaml - specify which packages should be deployed to the clusters.  Keep
 drop a cluster specific values file in your cluster config folder.  Any thing with secrets should be encrypted in its own values file. (see harbor example above)
 
 ```yaml
+---
 packages:
 - standard-repo
 - cert-manager
