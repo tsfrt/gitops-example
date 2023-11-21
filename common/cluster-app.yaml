@@ -5,9 +5,10 @@ kind: Secret
 data:
   data.yaml: "e30K"
 metadata:
-  creationTimestamp: null
   name: cluster-data
   namespace: package-repo
+  annotations:
+    kapp.k14s.io/change-group: "cluster-secrets"
 ---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
@@ -15,8 +16,7 @@ metadata:
   name: #@ data.values.name
   namespace: package-repo
   annotations:
-    kapp.k14s.io/change-rule: "upsert after upserting cluster-data/secret"
-    kapp.k14s.io/change-rule: "upsert after upserting cluster-data/secretExport"
+    kapp.k14s.io/change-rule: "upsert after upserting cluster-secrets"
 spec:
   serviceAccountName: kapp-gitops-sa
   fetch:
