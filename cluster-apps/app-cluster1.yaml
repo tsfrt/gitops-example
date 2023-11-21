@@ -1,0 +1,29 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: app-cluster1
+  namespace: tkg-system
+spec:
+  serviceAccountName: kapp-gitops-sa
+  fetch:
+    - git:
+        url: https://github.com/tsfrt/gitops-example
+        ref: origin/main
+  template:
+    - sops:
+        age:
+          privateKeysSecretRef:
+            name: enc-key
+    - ytt:
+        fileMarks:
+        - data.yaml:type=data
+        - packages.yaml:type=data
+        ignoreUnknownComments: true
+        paths:
+          - common
+          - cluster-config/app-cluster1
+        valuesFrom:
+          - secretRef:
+              name: cluster-data
+  deploy:
+    - kapp: {}
