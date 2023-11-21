@@ -50,7 +50,7 @@ metadata:
   namespace: tkg-system
   annotations:
 type: generic
-data:
+stringData:
   data.yaml: |
     name: ""
     harbor_namespace: ""
