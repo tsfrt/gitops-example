@@ -16,6 +16,7 @@ metadata:
   namespace: package-repo
   annotations:
     kapp.k14s.io/change-rule: "upsert after upserting cluster-data/secret"
+    kapp.k14s.io/change-rule: "upsert after upserting cluster-data/secretExport"
 spec:
   serviceAccountName: kapp-gitops-sa
   fetch:
