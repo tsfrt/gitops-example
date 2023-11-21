@@ -9,5 +9,4 @@ packages:
 - standard-repo
 - cert-manager
 - contour
-- harbor/app
 - fluentbit
