@@ -61,7 +61,7 @@ SOPS_AGE_KEY_FILE=/Users/seufertt/gitops/private/key.txt sops --encrypt --age <p
 cp harbor-values.sops.yaml cluster-config/<profile name>
 ```
 
-Create your cluster-app profile
+Create your cluster-app profile or re-use an existing profile (create a distinct cluster-config if you don't want it share state with an existing cluster)
 
 ```yaml
 ---
