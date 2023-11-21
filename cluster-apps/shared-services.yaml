@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
@@ -16,12 +18,8 @@ spec:
             name: enc-key
     - ytt:
         inline:
-          paths: |
-          #@ load("@ytt:data", "data")
-          
-          #@data/values
-          ---
-          #@ data.read("data.yaml")
+          paths: 
+            data.yaml: #@ data.read("data.yaml")
         ignoreUnknownComments: true
         paths:
           - common
