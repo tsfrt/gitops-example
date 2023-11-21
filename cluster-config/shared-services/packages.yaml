@@ -1,0 +1,5 @@
+packages:
+- standard-repo
+- cert-manager
+- contour
+- fluentbit
