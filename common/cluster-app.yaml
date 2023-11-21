@@ -36,8 +36,5 @@ spec:
         paths:
         #@ for/end package in data.values.packages:
         - #@ package
-        valuesFrom:
-          - secretRef:
-              name: cluster-data
   deploy:
     - kapp: {}
