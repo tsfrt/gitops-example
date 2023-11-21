@@ -16,7 +16,7 @@ spec:
             name: enc-key
     - ytt:
         fileMarks:
-        - data.yaml:type=data
+        - 'data.yaml:type=data'
         ignoreUnknownComments: true
         paths:
           - common

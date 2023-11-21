@@ -1,4 +1,3 @@
-#@data/values
 ---
 name: shared-services
 harbor_namespace: harbor-test
