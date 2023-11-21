@@ -52,8 +52,7 @@ metadata:
 type: generic
 stringData:
   data.yaml: |
-    name: ""
-    harbor_namespace: ""
+    name: placeholder
     gitops_repo: ""
     gitops_ref: ""
     packages: []
