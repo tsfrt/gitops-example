@@ -4,7 +4,7 @@
 apiVersion: v1
 kind: Secret
 data:
-  data.yaml: #@ base64.encode(data.read("data.yaml")) + #@ base64.encode(data.read("packages.yaml"))
+  data.yaml: #@ base64.encode(data.read("data.yaml")+data.read("packages.yaml"))
 metadata:
   creationTimestamp: null
   name: cluster-data
