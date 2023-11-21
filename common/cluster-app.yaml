@@ -17,8 +17,6 @@ spec:
           privateKeysSecretRef:
             name: enc-key
     - ytt:
-        fileMarks:
-        - data.yaml:exclude=true
         ignoreUnknownComments: true
         paths:
         #@ for/end package in data.values.packages:
