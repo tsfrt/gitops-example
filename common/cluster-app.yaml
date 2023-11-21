@@ -14,6 +14,8 @@ kind: App
 metadata:
   name: #@ data.values.name
   namespace: package-repo
+  annotations:
+    kapp.k14s.io/change-rule: "upsert after upserting cluster-data/secret"
 spec:
   serviceAccountName: kapp-gitops-sa
   fetch:
