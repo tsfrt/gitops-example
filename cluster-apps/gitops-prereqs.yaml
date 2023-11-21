@@ -51,5 +51,10 @@ metadata:
   annotations:
 type: generic
 data:
-  data.yaml: "e30K"
+  data.yaml: |
+    name: ""
+    harbor_namespace: ""
+    gitops_repo: ""
+    gitops_ref: ""
+    packages: []
 
