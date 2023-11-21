@@ -11,7 +11,7 @@ Create your encryption key and secret
 ```bash
 age-keygen -o key.txt
 
-kubectl create secret generic enc-key --from-file==key-txt --dry-run=client -o yaml > enc-key.yaml
+kubectl create secret generic enc-key --from-file==key-txt.yaml --dry-run=client -o yaml > enc-key.yaml
 ```
 
 Take the output of this and create a yaml secret like this (you could use secretgen to duplicate, but should just be these 2 namespaces)
@@ -62,37 +62,43 @@ cp harbor-values.sops.yaml cluster-config/<profile name>
 Check out your cluster-app profile, does it have all the services you want
 
 ```yaml
+---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
   name: shared-services
   namespace: tkg-system
 spec:
-  serviceAccountName: kapp-gitops-sa  
+  serviceAccountName: kapp-gitops-sa
   fetch:
-  - git:
-      url: https://github.com/tsfrt/gitops-example
-      ref: origin/main
+    - git:
+        url: https://github.com/tsfrt/gitops-example
+        ref: origin/main
   template:
-  - sops:
-      age:
-        privateKeysSecretRef:
-          name: enc-key
-  - ytt:
-      ignoreUnknownComments: true
-      paths:
-      - common
-      - cluster-config/shared-services
-      - standard-repo
-      - cert-manager
-      - contour
-      - harbor/app
+    - sops:
+        age:
+          privateKeysSecretRef:
+            name: enc-key
+    - ytt:
+        fileMarks:
+        - data.yaml:type=data
+        - packages.yaml:type=data
+        ignoreUnknownComments: true
+        paths:
+          - common
+          - cluster-config/shared-services 
+        valuesFrom:
+          - secretRef:
+              name: cluster-data
   deploy:
-  - kapp: {}
+    - kapp: {}
+
 ```
 
 If so, apply the profile
 
 ```bash
-kubectl apply -f cluster-app/<profile app>.yaml
+ytt -f cluster-apps/shared-services.yaml -f cluster-config/shared-services/data.yaml --file-mark 'data.yaml:type=data'  | kubectl apply -f-
 ```
+
+![gitops-flow](docs/gitops-flow.png)
