@@ -1,14 +1,14 @@
 #@ load("@ytt:data", "data")
 ---
-apiVersion: v1
-kind: Secret
-data:
-  data.yaml: "e30K"
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretImport
 metadata:
   name: cluster-data
   namespace: package-repo
   annotations:
     kapp.k14s.io/change-group: "cluster-secrets"
+spec:
+  fromNamespace: tkg-system
 ---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
