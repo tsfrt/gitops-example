@@ -9,12 +9,3 @@ metadata:
   creationTimestamp: null
   name: cluster-data
   namespace: package-repo
----
-apiVersion: v1
-kind: Secret
-data:
-  data.yaml: #@ base64.encode(data.read("data.yaml"))
-metadata:
-  creationTimestamp: null
-  name: cluster-data
-  namespace: tkg-system
