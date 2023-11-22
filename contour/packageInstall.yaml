@@ -23,7 +23,7 @@ metadata:
 stringData:
   #@yaml/text-templated-strings
   values.yml: |
-   contour:
+    contour:
       configFileContents:
         enableExternalNameService: true
     envoy:
