@@ -25,7 +25,7 @@ stringData:
   values.yml: |
     contour:
       configFileContents:
-        enableExternalNameService: true
+        enableExternalNameService: (@= data.values.countour_external_name @)
     envoy:
      service:
        type: LoadBalancer
