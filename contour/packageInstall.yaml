@@ -29,5 +29,5 @@ stringData:
        loadBalancerIP: (@= data.values.ingress_ip @)
     contour:
       configFileContents: |
-        enableExternalNameService: (@= data.values.countour_external_name @) 
+        enableExternalNameService: true
        
