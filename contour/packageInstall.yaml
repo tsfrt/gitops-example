@@ -28,6 +28,6 @@ stringData:
        type: LoadBalancer
        loadBalancerIP: (@= data.values.ingress_ip @)
     contour:
-      configFileContents: 
+      configFileContents:
         enableExternalNameService: true
        
