@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageRepository
 metadata:
