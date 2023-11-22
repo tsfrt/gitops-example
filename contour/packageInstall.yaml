@@ -23,11 +23,12 @@ metadata:
 stringData:
   #@yaml/text-templated-strings
   values.yml: |
+   contour:
+      configFileContents:
+        enableExternalNameService: true
     envoy:
      service:
        type: LoadBalancer
        loadBalancerIP: (@= data.values.ingress_ip @)
-    contour:
-      configFileContents:
-        enableExternalNameService: true
+   
        
