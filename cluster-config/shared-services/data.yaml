@@ -6,7 +6,7 @@ credentials_secret: harbor-registry-creds
 service_account_name: kapp-gitops-sa
 ingress_domain: ss.h2o-2-18171.h2o.vmware.com
 ingress_ip: 192.168.103.166
-countour_external_name: true
+countour_external_name: "true"
 cluster_issuer: cluster_ca
 gitops_repo: https://github.com/tsfrt/gitops-example
 gitops_ref: origin/main
