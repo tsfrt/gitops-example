@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
@@ -8,4 +10,4 @@ spec:
     refName: cert-manager.tanzu.vmware.com
     versionSelection:
       constraints: 1.11.1+vmware.1-tkg.1
-  serviceAccountName: kapp-gitops-sa
+  serviceAccountName: #@ data.values.service_account_name
