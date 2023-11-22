@@ -11,6 +11,7 @@ spec:
     versionSelection:
       constraints: 1.24.4+vmware.1-tkg.1
   serviceAccountName: #@ data.values.service_account_name
+  values:
    - secretRef:
       name:  contour-values
 ---
