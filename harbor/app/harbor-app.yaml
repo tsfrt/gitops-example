@@ -15,7 +15,7 @@ spec:
       repository:
         url: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts
         secretRef:
-            name: #@ data.values.registry_credentials
+            name: #@ data.values.credentials_secret
       version: 1.13.0
   - git:
       ref: origin/main
