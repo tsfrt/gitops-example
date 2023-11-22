@@ -4,3 +4,4 @@ packages:
 - contour
 - fluentbit
 - enterprise-routing
+- harbor/app
