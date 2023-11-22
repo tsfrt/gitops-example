@@ -31,7 +31,7 @@ spec:
             name: enc-key
     - ytt:
         inline:
-        pathsFrom:
+          pathsFrom:
             - secretRef:
                 name: cluster-data
         ignoreUnknownComments: true
