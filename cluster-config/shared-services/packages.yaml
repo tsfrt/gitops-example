@@ -3,3 +3,4 @@ packages:
 - cert-manager
 - contour
 - fluentbit
+- enterprise-routing
