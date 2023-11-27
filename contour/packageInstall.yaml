@@ -1,4 +1,5 @@
 #@ load("@ytt:data", "data")
+#@ load("common.lib.yaml", "getVersionByPackage")
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
@@ -9,7 +10,7 @@ spec:
   packageRef:
     refName: contour.tanzu.vmware.com
     versionSelection:
-      constraints: 1.24.4+vmware.1-tkg.1
+      constraints: getVersionByPackage("contour")
   serviceAccountName: #@ data.values.service_account_name
   values:
    - secretRef:

@@ -1,4 +1,5 @@
 #@ load("@ytt:data", "data")
+#@ load("common.lib.yaml", "getVersionByPackage")
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
@@ -9,7 +10,7 @@ spec:
   packageRef:
     refName: fluent-bit.tanzu.vmware.com
     versionSelection:
-      constraints: 2.1.2+vmware.1-tkg.1 
+      constraints: #@ getVersionByPackage("fluentbit")
   values:
   - secretRef:
       name: fluentbit-values

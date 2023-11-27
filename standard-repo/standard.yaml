@@ -1,4 +1,5 @@
 #@ load("@ytt:data", "data")
+#@ load("common.lib.yaml", "getVersionByPackage")
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageRepository
@@ -8,6 +9,6 @@ metadata:
 spec:
   fetch:
     imgpkgBundle:
-      image: #@ data.values.image_registry+"/packages/standard:v2023.7.13_update.2"
+      image: #@ "{}/packages/standard:{}".format(data.values.image_registry,getVersionByPackage("standard-repo"))
       secretRef:
         name: #@ data.values.credentials_secret

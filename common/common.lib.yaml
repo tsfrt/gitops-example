@@ -1,0 +1,11 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:assert", "assert")
+
+#@ def getVersionByPackage(packageName):
+#@   for pkg in data.values.packages:
+#@     if pkg.name == packageName:
+#@       return pkg.version
+#@     end
+#@   end
+#@   assert.fail("Failed to find a package version in packages.yaml for "+packageName)
+#@ end

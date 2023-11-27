@@ -1,7 +1,13 @@
 packages:
-- standard-repo
-- cert-manager
-- contour
-- fluentbit
-- enterprise-routing
-- harbor/app
+- name: standard-repo
+  version: v2023.7.13_update.2
+- name: cert-manager
+  version: 1.11.1+vmware.1-tkg.1
+- name: contour
+  version: 1.24.4+vmware.1-tkg.1
+- name: fluentbit
+  version: 2.1.2+vmware.1-tkg.1 
+- name: enterprise-routing
+  version: main
+- name: harbor/app
+  version: "1.13.0"

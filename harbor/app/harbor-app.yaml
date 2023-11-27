@@ -1,4 +1,5 @@
 #@ load("@ytt:data", "data")
+#@ load("common.lib.yaml", "getVersionByPackage")
 ---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
@@ -16,7 +17,7 @@ spec:
         url: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts
         secretRef:
             name: #@ data.values.credentials_secret
-      version: 1.13.0
+      version: #@ getVersionByPackage("harbor/app")
   - git:
       ref: origin/main
       subPath: harbor/harbor-artifacts

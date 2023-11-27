@@ -1,4 +1,5 @@
 #@ load("@ytt:data", "data")
+#@ load("common.lib.yaml", "getVersionByPackage")
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
@@ -9,5 +10,5 @@ spec:
   packageRef:
     refName: cert-manager.tanzu.vmware.com
     versionSelection:
-      constraints: 1.11.1+vmware.1-tkg.1
+      constraints: #@ getVersionByPackage("cert-manager")
   serviceAccountName: #@ data.values.service_account_name

@@ -34,7 +34,7 @@ spec:
         ignoreUnknownComments: true
         paths:
         #@ for/end package in data.values.packages:
-        - #@ package
+        - #@ package.name
         valuesFrom:
           - secretRef:
               name: cluster-data
