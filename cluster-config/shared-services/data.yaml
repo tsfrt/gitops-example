@@ -10,4 +10,3 @@ countour_external_name: "true"
 cluster_issuer: cluster_ca
 gitops_repo: https://github.com/tsfrt/gitops-example
 gitops_ref: origin/main
-
