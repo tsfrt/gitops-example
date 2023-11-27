@@ -32,13 +32,15 @@ spec:
             name: enc-key
     - ytt:
         ignoreUnknownComments: true
+        inline:
+          pathsFrom:
+          - secretRef:
+            name: common-lib
         paths:
           #@ for/end package in data.values.packages:
           -  #@ package.name
         valuesFrom:
           - secretRef:
               name: cluster-data
-          - secretRef:
-              name: common-lib
   deploy:
     - kapp: {}
