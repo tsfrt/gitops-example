@@ -11,7 +11,7 @@ spec:
   packageRef:
     refName: contour.tanzu.vmware.com
     versionSelection:
-      constraints: getVersionByPackage("contour")
+      constraints: #@ getVersionByPackage("contour")
   serviceAccountName: #@ data.values.service_account_name
   values:
    - secretRef:
