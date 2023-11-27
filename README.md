@@ -128,7 +128,7 @@ packages:
 If so, apply the profile (note that you need to select the correct app and data.yaml based on your deployment)
 
 ```bash
-ytt -f cluster-apps/shared-services.yaml -f cluster-config/shared-services/data.yaml --file-mark 'data.yaml:type=data'  | kubectl apply -f-
+kubectl apply -f cluster-apps/shared-services.yaml
 ```
 
 ![gitops-flow](docs/gitops-flow.png)
