@@ -11,3 +11,6 @@ packages:
     values: fluentbit-default-values
   - name: enterprise-routing
     version: main
+  - name: harbor/app
+    version: 1.13.0
+    values: harbor-values
