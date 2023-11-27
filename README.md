@@ -106,7 +106,12 @@ data.yaml - common values that get used across package installs and for defining
 ---
 name: shared-services
 harbor_namespace: harbor-test
+image_registry: harbor.build.h2o-2-18171.h2o.vmware.com
+credentials_secret: harbor-registry-creds
+service_account_name: kapp-gitops-sa
 ingress_domain: ss.h2o-2-18171.h2o.vmware.com
+ingress_ip: 192.168.103.166
+countour_external_name: "true"
 cluster_issuer: cluster_ca
 gitops_repo: https://github.com/tsfrt/gitops-example
 gitops_ref: origin/main
@@ -117,18 +122,19 @@ packages.yaml - specify which packages should be deployed to the clusters.  Keep
 drop a cluster specific values file in your cluster config folder.  Any thing with secrets should be encrypted in its own values file. (see harbor example above)
 
 ```yaml
----
 packages:
 - standard-repo
 - cert-manager
 - contour
 - fluentbit
+- enterprise-routing
+- harbor/app
 ```
 
 If so, apply the profile (note that you need to select the correct app and data.yaml based on your deployment)
 
 ```bash
-ytt -f cluster-apps/shared-services.yaml -f cluster-config/shared-services/data.yaml --file-mark 'data.yaml:type=data'  | kubectl apply -f-
+kubectl apply -f cluster-apps/shared-services.yaml
 ```
 
 ![gitops-flow](docs/gitops-flow.png)
