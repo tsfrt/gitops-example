@@ -9,3 +9,5 @@ packages:
   - name: fluentbit
     version: 2.1.2+vmware.1-tkg.1
     values: fluentbit-default-values
+  - name: enterprise-routing
+    version: main
