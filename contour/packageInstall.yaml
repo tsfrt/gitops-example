@@ -15,7 +15,7 @@ spec:
   serviceAccountName: #@ data.values.service_account_name
   values:
    - secretRef:
-      name:  getValuesByPackage("contour")
+      name: #@ getValuesByPackage("contour")
 ---
 apiVersion: v1
 kind: Secret
