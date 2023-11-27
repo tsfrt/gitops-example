@@ -8,7 +8,6 @@ metadata:
   annotations:
     kapp.k14s.io/change-rule: "upsert after upserting root-cluster-secrets"
     kapp.k14s.io/change-group: "cluster-secrets"
-    kapp.k14s.io/nonce: ""
 spec:
   fromNamespace: tkg-system
 ---
