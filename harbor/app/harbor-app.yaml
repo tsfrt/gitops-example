@@ -1,5 +1,5 @@
 #@ load("@ytt:data", "data")
-#@ load("common.lib.yaml", "getVersionByPackage")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
 ---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
@@ -32,7 +32,7 @@ spec:
       path: 0/
       valuesFrom:
       - secretRef:
-          name: harbor-values
+          name: #@ getValuesByPackage("harbor/app")
   - ytt:
       inline:
         pathsFrom:

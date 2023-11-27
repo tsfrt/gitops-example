@@ -1,5 +1,6 @@
 #@ load("@ytt:data", "data")
-#@ load("common.lib.yaml", "getVersionByPackage")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
+
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
@@ -14,12 +15,12 @@ spec:
   serviceAccountName: #@ data.values.service_account_name
   values:
    - secretRef:
-      name:  contour-values
+      name:  getValuesByPackage("contour")
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: contour-values
+  name: contour-default-values
   namespace: package-repo
 stringData:
   #@yaml/text-templated-strings

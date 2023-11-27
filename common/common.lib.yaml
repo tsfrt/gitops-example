@@ -9,3 +9,12 @@
 #@   end
 #@   assert.fail("Failed to find a package version in packages.yaml for "+packageName)
 #@ end
+
+#@ def getValuesByPackage(packageName):
+#@   for pkg in data.values.packages:
+#@     if pkg.name == packageName:
+#@       return pkg.values
+#@     end
+#@   end
+#@   assert.fail("Failed to find a package values secret name in packages.yaml for "+packageName)
+#@ end

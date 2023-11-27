@@ -13,13 +13,13 @@ spec:
       constraints: #@ getVersionByPackage("fluentbit")
   values:
   - secretRef:
-      name: fluentbit-values
+      name: #@ getValuesByPackage("fluentbit")
   serviceAccountName: #@ data.values.service_account_name
 ---
 apiVersion: v1
 kind: Secret
 metadata:
-  name: fluentbit-values
+  name: fluentbit-default-values
   namespace: package-repo
 stringData:
   values.yml: |

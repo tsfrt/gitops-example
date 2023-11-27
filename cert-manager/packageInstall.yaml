@@ -1,5 +1,5 @@
 #@ load("@ytt:data", "data")
-#@ load("common.lib.yaml", "getVersionByPackage")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
 ---
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
