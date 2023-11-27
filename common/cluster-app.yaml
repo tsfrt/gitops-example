@@ -34,7 +34,7 @@ spec:
         inline:
           pathsFrom:
           - secretRef:
-            name: common-lib
+              name: common-lib
         paths:
           #@ for/end package in data.values.packages:
           -  #@ package.name
