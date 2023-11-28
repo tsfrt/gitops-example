@@ -123,12 +123,21 @@ drop a cluster specific values file in your cluster config folder.  Any thing wi
 
 ```yaml
 packages:
-- standard-repo
-- cert-manager
-- contour
-- fluentbit
-- enterprise-routing
-- harbor/app
+  - name: standard-repo
+    version: v2023.7.13_update.2
+  - name: cert-manager
+    version: 1.11.1+vmware.1-tkg.1
+  - name: contour
+    version: 1.24.4+vmware.1-tkg.1
+    values: contour-default-values
+  - name: fluentbit
+    version: 2.1.2+vmware.1-tkg.1
+    values: fluentbit-default-values
+  - name: enterprise-routing
+    version: main
+  - name: harbor/app
+    version: 1.13.0
+    values: harbor-values
 ```
 
 If so, apply the profile (note that you need to select the correct app and data.yaml based on your deployment)
