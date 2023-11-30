@@ -1,0 +1,11 @@
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretExport
+metadata:
+  name: git-creds
+  namespace: tkg-system
+  annotations:
+    kapp.k14s.io/change-group: "cluster-secrets"
+    kapp.k14s.io/change-rule: "upsert after upserting root-cluster-secrets"
+spec:
+  toNamespaces:
+  - "*"  
