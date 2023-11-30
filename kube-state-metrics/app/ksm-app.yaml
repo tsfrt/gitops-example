@@ -5,7 +5,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: #@ data.values.credentials_secret
-  namespace: #@ data.values.harbor_namespace
+  namespace: kube-state-metrics
   annotations:
     secretgen.carvel.dev/image-pull-secret: ""
 type: kubernetes.io/dockerconfigjson
@@ -15,23 +15,23 @@ data:
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
-  name: harbor-helm
+  name: kube-state-metrics-helm
   namespace: package-repo
 spec:
   deploy:
   - kapp:
-      intoNs: #@ data.values.harbor_namespace
+      intoNs: kube-state-metrics
   fetch:
   - helmChart:
-      name: harbor
+      name: kube-state-metrics
       repository:
         url: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts
         secretRef:
             name: #@ data.values.credentials_secret
-      version: #@ getVersionByPackage("harbor/app")
+      version: #@ getVersionByPackage("kube-state-metrics/app")
   - git:
       ref: origin/main
-      subPath: harbor/harbor-artifacts
+      subPath: kube-state-metrics/kube-state-metrics-artifacts
       url: https://github.com/tsfrt/gitops-example
       secretRef:
         name: git-creds
@@ -45,7 +45,7 @@ spec:
       path: 0/
       valuesFrom:
       - secretRef:
-          name: #@ getValuesByPackage("harbor/app")
+          name: #@ getValuesByPackage("kube-state-metrics/app")
   - ytt:
       inline:
         pathsFrom:
@@ -53,5 +53,5 @@ spec:
             name: common-lib
   - kbld:
       paths:
-      - 1/harbor.lock.copied
+      - 1/ksm.lock.copied
       - '-'

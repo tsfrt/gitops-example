@@ -1,0 +1,10 @@
+apiVersion: kbld.k14s.io/v1alpha1
+kind: Config
+minimumRequiredVersion: 0.37.4
+overrides:
+- image: docker.io/bitnami/kube-state-metrics:2.10.1-debian-11-r0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/kube-state-metrics-bundle@sha256:23ef14782f09e268a5dd65e0fda2910705787beb537b2bb84a993e5087664793
+  preresolved: true
+- image: index.docker.io/bitnami/kube-state-metrics@sha256:23ef14782f09e268a5dd65e0fda2910705787beb537b2bb84a993e5087664793
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/kube-state-metrics-bundle@sha256:23ef14782f09e268a5dd65e0fda2910705787beb537b2bb84a993e5087664793
+  preresolved: true

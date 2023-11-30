@@ -11,3 +11,6 @@ packages:
     values: fluentbit-default-values
   - name: enterprise-routing
     version: main
+  - name: kube-state-metrics/app
+    version: 3.8.4
+    values: ksm-values
