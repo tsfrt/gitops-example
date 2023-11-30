@@ -47,6 +47,31 @@ Apply the key secrets
 kubectl apply -f enc-key.yaml
 ```
 
+If your git repo requires authentication, you will need to create a git credential secret before applying the cluster app.  It must be named `git-creds` in order to be replicated out to apps.
+
+```bash
+kubectl create secret generic git-creds \
+  --from-literal=username=tsfrt \
+  --from-literal=password=<token from git repo> \
+  -n tkg-system \
+  --dry-run=client \
+  -o yaml > git-creds.yaml
+```
+
+apply the secret.
+
+```yaml
+apiVersion: v1
+data:
+  password: <base64 encoded>
+  username: dHNmcnQ=
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: git-creds
+  namespace: tkg-system
+```
+
 Create any required cluster specific cluster-config (for example encrypted harbor values)
 
 check out a more detailed process for preparing a helm deployment [Harbor Helm](https://github.com/tsfrt/gitops-example/blob/main/harbor/README.md)
