@@ -26,7 +26,7 @@ stringData:
   values.yml: |
     prometheus: 
       config:
-        prometheus_yaml: |
+        prometheus_yml: |
           global:
             evaluation_interval: 1m
             scrape_interval: 1m
