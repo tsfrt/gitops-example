@@ -1,0 +1,31 @@
+#@ load("@ytt:data", "data")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: prometheus
+  namespace: package-repo
+spec:
+  packageRef:
+    refName: prometheus.tanzu.vmware.com
+    versionSelection:
+      constraints: #@ getVersionByPackage("prometheus")
+  serviceAccountName: #@ data.values.service_account_name
+  values:
+   - secretRef:
+      name: #@ getValuesByPackage("prometheus")
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: prometheus-default-values
+  namespace: package-repo
+stringData:
+  #@yaml/text-templated-strings
+  values.yml: |
+    ingress:
+      enabled: true
+      virtual_host_fqdn: prom.(@= data.values.ingress_domain @)
+      prometheus_prefix: "/"
+      alertmanager_prefix: "/alertmanager/"

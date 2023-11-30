@@ -4,7 +4,7 @@ harbor_namespace: harbor-test
 image_registry: harbor.build.h2o-2-18171.h2o.vmware.com
 credentials_secret: harbor-registry-creds
 service_account_name: kapp-gitops-sa
-ingress_domain: ss.h2o-2-18171.h2o.vmware.com
+ingress_domain: ingress.h2o-2-18171.h2o.vmware.com
 ingress_ip: 192.168.103.166
 countour_external_name: "true"
 cluster_issuer: cluster_ca

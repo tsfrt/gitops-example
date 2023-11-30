@@ -14,3 +14,12 @@ packages:
   - name: kube-state-metrics/app
     version: 3.8.4
     values: ksm-values
+  - name: contour
+    version: 1.24.4+vmware.1-tkg.1
+    values: contour-default-values
+  - name: prometheus
+    version: 2.43.0+vmware.2-tkg.1
+    values: prometheus-default-values
+  - name: grafana
+    version: 9.5.1+vmware.2-tkg.1
+    values: grafana-default-values

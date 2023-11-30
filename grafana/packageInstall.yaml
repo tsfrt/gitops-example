@@ -1,0 +1,45 @@
+#@ load("@ytt:data", "data")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: grafana
+  namespace: package-repo
+spec:
+  packageRef:
+    refName: grafana.tanzu.vmware.com
+    versionSelection:
+      constraints: #@ getVersionByPackage("grafana")
+  serviceAccountName: #@ data.values.service_account_name
+  values:
+   - secretRef:
+      name: #@ getValuesByPackage("grafana")
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-default-values
+  namespace: package-repo
+stringData:
+  #@yaml/text-templated-strings
+  values.yml: |
+    grafana:
+      secret:
+        admin_user: YWRtaW4=
+        admin_password: YWRtaW4=
+      config:
+        datasource_yaml: |-
+          apiVersion: 1
+          datasources:
+          - orgId: 1
+            name: Prometheus
+            type: prometheus
+            url: http://prometheus-server.tanzu-system-monitoring.svc.cluster.local
+            access: proxy
+            isDefault: true
+    ingress:
+      enabled: true
+      virtual_host_fqdn: grafana.(@= data.values.ingress_domain @)
+   
+       
