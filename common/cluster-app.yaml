@@ -11,6 +11,17 @@ metadata:
 spec:
   fromNamespace: tkg-system
 ---
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretImport
+metadata:
+  name: git-creds
+  namespace: package-repo
+  annotations:
+    kapp.k14s.io/change-rule: "upsert after upserting root-cluster-secrets"
+    kapp.k14s.io/change-group: "cluster-secrets"
+spec:
+  fromNamespace: tkg-system
+---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
@@ -24,6 +35,8 @@ spec:
     - git:
         url: #@ data.values.gitops_repo
         ref: #@ data.values.gitops_ref
+        secretRef:
+          name: git-creds
   template:
     - sops:
         age:

@@ -1,4 +1,3 @@
-#@ load("@ytt:data", "data")
 ---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
@@ -11,6 +10,8 @@ spec:
     - git:
         url: https://github.com/tsfrt/gitops-example
         ref: origin/main
+        secretRef:
+          name: git-creds 
   template:
     - sops:
         age:

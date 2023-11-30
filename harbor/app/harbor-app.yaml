@@ -1,6 +1,28 @@
 #@ load("@ytt:data", "data")
 #@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
 ---
+apiVersion: secretgen.carvel.dev/v1alpha1
+kind: SecretImport
+metadata:
+  name: git-creds
+  namespace: #@ data.values.harbor_namespace
+  annotations:
+    kapp.k14s.io/change-rule: "upsert after upserting root-cluster-secrets"
+    kapp.k14s.io/change-group: "cluster-secrets"
+spec:
+  fromNamespace: tkg-system
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: #@ data.values.credentials_secret
+  namespace: #@ data.values.harbor_namespace
+  annotations:
+    secretgen.carvel.dev/image-pull-secret: ""
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: "e30K"
+---
 apiVersion: kappctrl.k14s.io/v1alpha1
 kind: App
 metadata:
@@ -22,6 +44,8 @@ spec:
       ref: origin/main
       subPath: harbor/harbor-artifacts
       url: https://github.com/tsfrt/gitops-example
+      secretRef:
+        name: git-creds
   serviceAccountName: #@ data.values.service_account_name
   template:
   - sops:
