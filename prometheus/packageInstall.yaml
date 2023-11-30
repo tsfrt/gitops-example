@@ -41,9 +41,6 @@ stringData:
             scrape_interval: 5s
             static_configs:
             - targets: ['localhost:9090']
-          - job_name: 'kube-state-metrics'
-            static_configs:
-            - targets: ['prometheus-kube-state-metrics.tanzu-system-monitoring.svc.cluster.local:8080']
       
           - job_name: 'node-exporter'
             static_configs:
@@ -51,7 +48,7 @@ stringData:
 
           - job_name: 'kube-state-metrics'
             static_configs:
-            - targets: ['kube-state-metrics-helm.kube-state-metrics.svc.cluster.local'] 
+            - targets: ['kube-state-metrics-helm.kube-state-metrics.svc.cluster.local:8080'] 
 
           - job_name: 'kubernetes-pods'
             kubernetes_sd_configs:
