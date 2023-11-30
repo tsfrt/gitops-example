@@ -31,7 +31,7 @@ spec:
       version: #@ getVersionByPackage("kube-state-metrics/app")
   - git:
       ref: origin/main
-      subPath: kube-state-metrics/kube-state-metrics-artifacts
+      subPath: kube-state-metrics/artifacts
       url: https://github.com/tsfrt/gitops-example
       secretRef:
         name: git-creds
