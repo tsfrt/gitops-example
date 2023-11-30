@@ -24,6 +24,9 @@ metadata:
 stringData:
   #@yaml/text-templated-strings
   values.yml: |
+    kube_state_metrics:
+      deployment:
+        replicas: 0	
     prometheus: 
       config:
         prometheus_yml: |
