@@ -6,6 +6,8 @@ kind: PackageInstall
 metadata:
   name: grafana
   namespace: package-repo
+  annotations:
+    kapp.k14s.io/change-group: "grafana"
 spec:
   packageRef:
     refName: grafana.tanzu.vmware.com
@@ -21,6 +23,8 @@ kind: Secret
 metadata:
   name: grafana-default-values
   namespace: package-repo
+  annotations:
+    kapp.k14s.io/change-group: "grafana"
 stringData:
   #@yaml/text-templated-strings
   values.yml: |

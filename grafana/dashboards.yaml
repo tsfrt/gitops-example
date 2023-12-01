@@ -1,6 +1,8 @@
 apiVersion: v1
 kind: configmap
 metadata:
+  annotations:
+     kapp.k14s.io/change-rule: "upsert after upserting grafana"
   labels:
     app.kubernetes.io/name: grafana
     grafana-dashboard: "1"
