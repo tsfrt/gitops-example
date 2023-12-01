@@ -215,4 +215,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: kube-state-metrics-helm
-  namespace: package-repo
+  namespace: kube-state-metrics
