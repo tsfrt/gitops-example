@@ -9,7 +9,7 @@ metadata:
   name: grafana-dashboard-kapp
   namespace: tanzu-system-dashboards  
 data:
-  default.json: |
+  kapp.json: |
     {
       "__inputs": [
         {
