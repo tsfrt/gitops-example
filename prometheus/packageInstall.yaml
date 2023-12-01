@@ -24,9 +24,6 @@ metadata:
 stringData:
   #@yaml/text-templated-strings
   values.yml: |
-    kube_state_metrics:
-      deployment:
-        replicas: 0	
     prometheus: 
       config:
         prometheus_yml: |
@@ -44,6 +41,9 @@ stringData:
             scrape_interval: 5s
             static_configs:
             - targets: ['localhost:9090']
+          - job_name: 'kube-state-metrics'
+            static_configs:
+            - targets: ['prometheus-kube-state-metrics.tanzu-system-monitoring.svc.cluster.local:8080']
       
           - job_name: 'node-exporter'
             static_configs:
