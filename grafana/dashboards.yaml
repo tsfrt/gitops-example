@@ -13,7 +13,7 @@ data:
     {
       "__inputs": [
         {
-          "name": "DS_PROMETHEUS",
+          "name": "prometheus",
           "label": "",
           "description": "",
           "type": "datasource",
@@ -93,7 +93,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "gridPos": {
             "h": 1,
@@ -118,7 +118,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "gridPos": {
             "h": 1,
@@ -143,7 +143,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "gridPos": {
             "h": 1,
@@ -168,7 +168,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -214,7 +214,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -231,7 +231,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -277,7 +277,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -294,7 +294,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -340,7 +340,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -357,7 +357,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -411,7 +411,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -428,7 +428,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -482,7 +482,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -499,7 +499,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -553,7 +553,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -570,7 +570,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -624,7 +624,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -641,7 +641,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -695,7 +695,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -712,7 +712,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "description": "",
           "fieldConfig": {
@@ -766,7 +766,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -783,7 +783,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -922,7 +922,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -986,7 +986,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1055,7 +1055,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1096,7 +1096,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1208,7 +1208,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1251,7 +1251,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1320,7 +1320,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1361,7 +1361,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1473,7 +1473,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1517,7 +1517,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1586,7 +1586,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1627,7 +1627,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${DS_THANOS}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1678,7 +1678,7 @@ data:
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${DS_THANOS}"
               },
               "editorMode": "code",
               "exemplar": false,
@@ -1750,7 +1750,7 @@ data:
             "current": {},
             "datasource": {
               "type": "prometheus",
-              "uid": "${DS_PROMETHEUS}"
+              "uid": "${DS_THANOS}"
             },
             "definition": "label_values(agent_build_info,cluster)",
             "hide": 0,
