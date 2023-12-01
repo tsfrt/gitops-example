@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: grafana
     grafana-dashboard: "1"
-  name: grafana-dashboard-default
+  name: grafana-dashboard-kapp
   namespace: tanzu-system-dashboards  
 data:
   default.json:
