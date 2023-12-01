@@ -1,3 +1,4 @@
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -202,3 +203,16 @@ rules:
   resources:
   - customresourcedefinitions
   verbs: ["list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kube-state-metrics-helm-package-repo
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: kube-state-metrics-helm-package-repo
+subjects:
+- kind: ServiceAccount
+  name: kube-state-metrics-helm
+  namespace: package-repo
