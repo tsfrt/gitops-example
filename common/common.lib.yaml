@@ -74,6 +74,11 @@ spec:
             name: common-lib
         - secretRef:
             name: cluster-data
+      paths:
+      valuesFrom:
+        - secretRef:
+          name: cluster-data
+        
   - kbld:
       paths:
       - #@ "1/"+lock_file
