@@ -68,6 +68,8 @@ spec:
       - secretRef:
           name: #@ getValuesByPackage(package_name)
   - ytt:
+      fileMarks:
+        - data.yaml:type=data
       inline:
         pathsFrom:
         - secretRef:
