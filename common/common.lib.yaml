@@ -18,3 +18,62 @@
 #@   end
 #@   assert.fail("Failed to find a package values secret name in packages.yaml for "+packageName)
 #@ end
+
+
+#@ def helmApp(name, namespace, chart_name, chart_url, package_name, git_ref, git_subpath, git_repo, lock_file):
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: #@ data.values.credentials_secret
+  namespace: #@ namespace
+  annotations:
+    secretgen.carvel.dev/image-pull-secret: ""
+type: kubernetes.io/dockerconfigjson
+data:
+  .dockerconfigjson: "e30K"
+---
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: #@ name
+  namespace: package-repo
+spec:
+  deploy:
+  - kapp:
+      intoNs: #@ namespace
+  fetch:
+  - helmChart:
+      name: #@ chart_name
+      repository:
+        url: #@ chart_url
+        secretRef:
+            name: #@ data.values.credentials_secret
+      version: #@ getVersionByPackage(package_name)
+  - git:
+      ref: #@ git_ref
+      subPath: #@ git_subpath
+      url: #@ git_repo
+      secretRef:
+        name: git-creds
+  serviceAccountName: #@ data.values.service_account_name
+  template:
+  - sops:
+      age:
+        privateKeysSecretRef:
+          name: enc-key
+  - helmTemplate:
+      path: 0/
+      valuesFrom:
+      - secretRef:
+          name: #@ getValuesByPackage(package_name)
+  - ytt:
+      inline:
+        pathsFrom:
+        - secretRef:
+            name: common-lib
+  - kbld:
+      paths:
+      - #@ "1/"+lock_file
+      - '-'
+#@ end

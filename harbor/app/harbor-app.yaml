@@ -1,57 +1,17 @@
 #@ load("@ytt:data", "data")
-#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: #@ data.values.credentials_secret
-  namespace: #@ data.values.harbor_namespace
-  annotations:
-    secretgen.carvel.dev/image-pull-secret: ""
-type: kubernetes.io/dockerconfigjson
-data:
-  .dockerconfigjson: "e30K"
----
-apiVersion: kappctrl.k14s.io/v1alpha1
-kind: App
-metadata:
-  name: harbor-helm
-  namespace: package-repo
-spec:
-  deploy:
-  - kapp:
-      intoNs: #@ data.values.harbor_namespace
-  fetch:
-  - helmChart:
-      name: harbor
-      repository:
-        url: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts
-        secretRef:
-            name: #@ data.values.credentials_secret
-      version: #@ getVersionByPackage("harbor/app")
-  - git:
-      ref: origin/main
-      subPath: harbor/harbor-artifacts
-      url: https://github.com/tsfrt/gitops-example
-      secretRef:
-        name: git-creds
-  serviceAccountName: #@ data.values.service_account_name
-  template:
-  - sops:
-      age:
-        privateKeysSecretRef:
-          name: enc-key
-  - helmTemplate:
-      path: 0/
-      valuesFrom:
-      - secretRef:
-          name: #@ getValuesByPackage("harbor/app")
-  - ytt:
-      inline:
-        pathsFrom:
-        - secretRef:
-            name: common-lib
-  - kbld:
-      paths:
-      - 1/harbor.lock.copied
-      - '-'
+#@ load("@ytt:template", "template")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage", "helmApp")
+
+#@ name = "harbor-app"
+#@ namespace = "harbor-test"
+#@ chart_name = "harbor"
+#@ chart_url = "oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts"
+#@ package_name = "harbor/app"
+#@ git_ref = "origin/main"
+#@ git_subpath = "harbor/harbor-artifacts"
+#@ git_repo = "https://github.com/tsfrt/gitops-example"
+#@ lock_file = "harbor.lock.copied" 
+
+--- #@ template.replace(helmApp(name, namespace, chart_name, chart_url, package_name, git_ref, git_subpath, git_repo, lock_file))
+
+
