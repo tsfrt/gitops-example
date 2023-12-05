@@ -69,13 +69,11 @@ spec:
           name: #@ getValuesByPackage(package_name)
   - ytt:
       fileMarks:
-        - data.yaml:type=data
+      - data.yaml:type=data
       inline:
         pathsFrom:
         - secretRef:
             name: common-lib
-        - secretRef:
-            name: cluster-data
       paths:
       valuesFrom:
         - secretRef:
