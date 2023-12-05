@@ -78,7 +78,6 @@ spec:
       valuesFrom:
         - secretRef:
             name: cluster-data
-        
   - kbld:
       paths:
       - #@ "1/"+lock_file
