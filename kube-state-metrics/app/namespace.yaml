@@ -1,8 +1,0 @@
-#@ load("@ytt:data", "data")
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    kubernetes.io/metadata.name: kube-state-metrics
-  name: kube-state-metrics
