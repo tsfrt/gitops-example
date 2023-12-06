@@ -23,6 +23,4 @@ overrides:
 - image: index.docker.io/velero/velero@sha256:7f758f88a70ec989cd5a09e1e6dfe6d625b37680eb4acc724eca01b01b5fbddc
   newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:7f758f88a70ec989cd5a09e1e6dfe6d625b37680eb4acc724eca01b01b5fbddc
   preresolved: true
-- image: index.docker.io/vsphereveleroplugin/velero-plugin-for-vsphere@sha256:5773fb1b77a9f9af3705ebfdec97cb4bd207acc391209521706ba62dae80aa38
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:5773fb1b77a9f9af3705ebfdec97cb4bd207acc391209521706ba62dae80aa38
-  preresolved: true
+

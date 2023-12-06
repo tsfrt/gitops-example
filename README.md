@@ -1,78 +1,15 @@
-## Apply a cluster profile
+## Apply a cluster app
 
-
-Apply prereqs
-
-```bash
-kubectl apply -f cluster-apps/gitops-prereqs.yaml
-```
-Create your encryption key and secret
+If you do not already have an encryption key create one as follows.
 
 ```bash
+
 age-keygen -o key.txt
-
-kubectl create secret generic enc-key --from-file==key-txt.yaml --dry-run=client -o yaml > enc-key.yaml
 ```
 
-Take the output of this and create a yaml secret like this (you could use secretgen to duplicate, but should just be these 2 namespaces)
+You will need to generate a git token for your git user with read access to the repository.  Generate the token an be prepared to supply that value later.
 
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: enc-key
-  namespace: tkg-system
-stringData:
-  key.txt: |
-    # created: 2023-11-07T08:28:54-05:00
-    # public key: age1k0pw8ujs33xpk0sjuxex64nqhz4c4j5yhus3lka077sv868rv4qq4upsu4
-    AGE-SECRET-KEY-1LCH9QTZLSVLUVX8HE07RFPSN8PJF8JGPLJZ3LF6ZSUYLYP64FW6QMM5D0Q
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: enc-key
-  namespace: package-repo
-stringData:
-  key.txt: |
-    # created: 2023-11-07T08:28:54-05:00
-    # public key: age1k0pw8ujs33xpk0sjuxex64nqhz4c4j5yhus3lka077sv868rv4qq4upsu4
-    AGE-SECRET-KEY-1LCH9QTZLSVLUVX8HE07RFPSN8PJF8JGPLJZ3LF6ZSUYLYP64FW6QMM5D0Q
-```
-
-Apply the key secrets
-
-```bash
-kubectl apply -f enc-key.yaml
-```
-
-If your git repo requires authentication, you will need to create a git credential secret before applying the cluster app.  It must be named `git-creds` in order to be replicated out to apps.
-
-```bash
-kubectl create secret generic git-creds \
-  --from-literal=username=tsfrt \
-  --from-literal=password=<token from git repo> \
-  -n tkg-system \
-  --dry-run=client \
-  -o yaml > git-creds.yaml
-```
-
-apply the secret.
-
-```yaml
-apiVersion: v1
-data:
-  password: <base64 encoded>
-  username: dHNmcnQ=
-kind: Secret
-metadata:
-  creationTimestamp: null
-  name: git-creds
-  namespace: tkg-system
-```
-
-Create any required cluster specific cluster-config (for example encrypted harbor values)
+If your cluster packages require a values file (harbor, velero, etc) create any required cluster specific values secrets and put them in cluster-config (for example encrypted harbor values)
 
 check out a more detailed process for preparing a helm deployment [Harbor Helm](https://github.com/tsfrt/gitops-example/blob/main/harbor/README.md)
 
@@ -83,43 +20,7 @@ check out a more detailed process for preparing a helm deployment [Harbor Helm](
 
 SOPS_AGE_KEY_FILE=/Users/seufertt/gitops/private/key.txt sops --encrypt --age <pub key>  harbor-values.yaml > harbor-values.sops.yaml
 
-cp harbor-values.sops.yaml cluster-config/<profile name>
-```
-
-Create your cluster-app profile or re-use an existing profile (create a distinct cluster-config if you don't want it share state with an existing cluster)
-
-```yaml
----
-apiVersion: kappctrl.k14s.io/v1alpha1
-kind: App
-metadata:
-  name: shared-services
-  namespace: tkg-system
-spec:
-  serviceAccountName: kapp-gitops-sa
-  fetch:
-    - git:
-        url: https://github.com/tsfrt/gitops-example
-        ref: origin/main
-  template:
-    - sops:
-        age:
-          privateKeysSecretRef:
-            name: enc-key
-    - ytt:
-        fileMarks:
-        - data.yaml:type=data
-        - packages.yaml:type=data
-        ignoreUnknownComments: true
-        paths:
-          - common
-          - cluster-config/shared-services 
-        valuesFrom:
-          - secretRef:
-              name: cluster-data
-  deploy:
-    - kapp: {}
-
+cp harbor-values.sops.yaml cluster-config/<cluster app name>
 ```
 
 Configure your cluster
@@ -165,10 +66,24 @@ packages:
     values: harbor-values
 ```
 
-If so, apply the profile (note that you need to select the correct app and data.yaml based on your deployment)
+Some things to know before applying the cluster app
+
+- There must be a cluster config directory that matches your app name
+- You must have a key file and the common/registry-creds.sops.yaml must be in encrypted with it
+
+apply your cluster app (make sure you are pointed at the right cluster)
 
 ```bash
-kubectl apply -f cluster-apps/shared-services.yaml
+
+./setup-cluster.sh \
+-a shared-servicesx \
+-k "$PWD/../private/key.txt" \
+-u tsfrt \
+-t xyz \
+-b origin/main \
+-r https://github.com/tsfrt/gitops-example
+
 ```
+
 
 ![gitops-flow](docs/gitops-flow.png)
