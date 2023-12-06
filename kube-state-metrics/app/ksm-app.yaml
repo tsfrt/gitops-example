@@ -8,7 +8,7 @@
 #@ chart_url = "oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts"
 #@ package_name = "kube-state-metrics/app"
 #@ git_ref = "origin/main"
-#@ git_subpath = "velero/artifacts"
+#@ git_subpath = "kube-state-metrics/artifacts"
 #@ git_repo = "https://github.com/tsfrt/gitops-example"
 #@ lock_file = "ksm.lock.copied"
 
@@ -22,5 +22,3 @@ metadata:
     pod-security.kubernetes.io/enforce: privileged
     kubernetes.io/metadata.name: #@ namespace
   name: #@ namespace
-
-
