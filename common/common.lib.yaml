@@ -63,6 +63,7 @@ spec:
         privateKeysSecretRef:
           name: enc-key
   - helmTemplate:
+      namespace: #@ namespace
       path: 0/
       valuesFrom:
       - secretRef:
