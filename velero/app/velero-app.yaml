@@ -22,32 +22,3 @@ metadata:
     pod-security.kubernetes.io/enforce: privileged
     kubernetes.io/metadata.name: #@ namespace
   name: #@ namespace
----
-apiVersion: ENC[AES256_GCM,data:0/w=,iv:ol6YJDb/xb77FcLGQ1JVM9CGuEsvEreHL52/hZog6VQ=,tag:Lnl3yPRLlWRw9nN8zlOcXw==,type:str]
-data:
-    secret: ENC[AES256_GCM,data:/SMYpJW4SaUyo6ks/aeH2NRP5DEDesOQcUdVNTb71EBE9Hf0UqcP/PWdj9u7wipF9x0WxOz3CFqr3A4L8yXM9Z02te7sH7g9pXDN90vf0MAt/1TDqHWJZVbLPnZgELyfCPFiadGuls/TIU2IrDbC6fBhYVGtQbaRbgagf8Hr359zD+84P2T40A==,iv:0NYTCs0sYEeO8+r3wIu2HZ/8KYRlnTVBgn90tT5mxFs=,tag:uCgrvCULhjDaaJXRol3IpA==,type:str]
-kind: ENC[AES256_GCM,data:QjcZrA8Q,iv:pPQ5S9dRWqR5wNHFfU4WPamw1Pv1FL7bLwOtB8Wc0xE=,tag:jAftM8LvSnzuwmmMxiKlHQ==,type:str]
-metadata:
-    creationTimestamp: null
-    name: ENC[AES256_GCM,data:+BTqObqM6IxghMsUcr86dFLaOQ==,iv:k1yK0IE+2E77Ald3zrK2do4ApFY5QCH9EhgEGjKW+UA=,tag:7/I9SoPSxksJOuhK7zSykQ==,type:str]
-    namespace: #@ namespace
-sops:
-    kms: []
-    gcp_kms: []
-    azure_kv: []
-    hc_vault: []
-    age:
-        - recipient: age1k0pw8ujs33xpk0sjuxex64nqhz4c4j5yhus3lka077sv868rv4qq4upsu4
-          enc: |
-            -----BEGIN AGE ENCRYPTED FILE-----
-            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBrVnNac1JDdkk2VGhraUM5
-            aXhERUVzUi8yeHNUZm0xOEJGME1EZ1NWeG1nCmgvREczUDZtb1Z0RklPZ2t0SVgw
-            Mk1qaXNkV1pmb0FKTUpkVUVHRWlVc3cKLS0tIFV1WnBObDhkZk5Sa0lPdFVsdTc1
-            RnAwcTlEL3dicWE2eTVXaGpleUdzeWcKhK6/ijIVCNJPxN8ra3S+6TnG61E16umP
-            tjy9IvZ+1j+2S+fLZzozytZJwoOG0DvGm2CClcnx0dblvyubThia6Q==
-            -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2023-12-06T02:18:54Z"
-    mac: ENC[AES256_GCM,data:yY6euyG4qs5v7F2v7wZqBkrPEM9jz2OkdkkwLfseNR+dsO2ixqFz6RLqUk5WOlIVpOCUo85KbsEEgxcGOMQLkQn4cl+ffbugujS5W8fOTDYfigMxwS/f2xwj72yxNYO/2ek3DG6AkvNfxcDAlO7Ix+SJY/AH0u2hLfB/OLdSAfw=,iv:LfAv6vM3Nnf3kpxzZjSJ8bwM2CFy5rDrVn+VbU86jK8=,tag:kry8qK+wLxPuYkdd664ZHg==,type:str]
-    pgp: []
-    unencrypted_suffix: _unencrypted
-    version: 3.8.0
