@@ -1,57 +1,26 @@
 #@ load("@ytt:data", "data")
-#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage")
+#@ load("@ytt:template", "template")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage", "helmApp")
+
+#@ name = "kube-state-metrics-helm"
+#@ namespace = "kube-state-metrics"
+#@ chart_name = "kube-state-metrics"
+#@ chart_url = "oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts"
+#@ package_name = "kube-state-metrics/app"
+#@ git_ref = "origin/main"
+#@ git_subpath = "velero/artifacts"
+#@ git_repo = "https://github.com/tsfrt/gitops-example"
+#@ lock_file = "ksm.lock.copied" 
+
+--- #@ template.replace(helmApp(name, namespace, chart_name, chart_url, package_name, git_ref, git_subpath, git_repo, lock_file))
+
 ---
 apiVersion: v1
-kind: Secret
+kind: Namespace
 metadata:
-  name: #@ data.values.credentials_secret
-  namespace: kube-state-metrics
-  annotations:
-    secretgen.carvel.dev/image-pull-secret: ""
-type: kubernetes.io/dockerconfigjson
-data:
-  .dockerconfigjson: "e30K"
----
-apiVersion: kappctrl.k14s.io/v1alpha1
-kind: App
-metadata:
-  name: kube-state-metrics-helm
-  namespace: package-repo
-spec:
-  deploy:
-  - kapp:
-      intoNs: kube-state-metrics
-  fetch:
-  - helmChart:
-      name: kube-state-metrics
-      repository:
-        url: oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts
-        secretRef:
-            name: #@ data.values.credentials_secret
-      version: #@ getVersionByPackage("kube-state-metrics/app")
-  - git:
-      ref: origin/main
-      subPath: kube-state-metrics/artifacts
-      url: https://github.com/tsfrt/gitops-example
-      secretRef:
-        name: git-creds
-  serviceAccountName: #@ data.values.service_account_name
-  template:
-  - sops:
-      age:
-        privateKeysSecretRef:
-          name: enc-key
-  - helmTemplate:
-      path: 0/
-      valuesFrom:
-      - secretRef:
-          name: #@ getValuesByPackage("kube-state-metrics/app")
-  - ytt:
-      inline:
-        pathsFrom:
-        - secretRef:
-            name: common-lib
-  - kbld:
-      paths:
-      - 1/ksm.lock.copied
-      - '-'
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+    kubernetes.io/metadata.name: #@ namespace
+  name: #@ namespace
+
+
