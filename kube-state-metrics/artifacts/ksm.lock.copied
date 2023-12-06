@@ -2,27 +2,9 @@ apiVersion: kbld.k14s.io/v1alpha1
 kind: Config
 minimumRequiredVersion: 0.37.4
 overrides:
-- image: docker.io/bitnami/kubectl:1.28
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:3252e5a2185582b84bb5f5fcae6b4907dcd6011144947d6d452761f3ccc249dd
+- image: docker.io/bitnami/kube-state-metrics:2.10.1-debian-11-r0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/kube-state-metrics-bundle@sha256:23ef14782f09e268a5dd65e0fda2910705787beb537b2bb84a993e5087664793
   preresolved: true
-- image: velero/velero-plugin-for-aws:v1.8.2
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:edfb14403fc4ee45ac99f34930125869a06465c44ffacaf57e351e477e2c6b53
-  preresolved: true
-- image: velero/velero:v1.12.2
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:7f758f88a70ec989cd5a09e1e6dfe6d625b37680eb4acc724eca01b01b5fbddc
-  preresolved: true
-- image: vsphereveleroplugin/velero-plugin-for-vsphere:v1.5.2
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:5773fb1b77a9f9af3705ebfdec97cb4bd207acc391209521706ba62dae80aa38
-  preresolved: true
-- image: index.docker.io/bitnami/kubectl@sha256:3252e5a2185582b84bb5f5fcae6b4907dcd6011144947d6d452761f3ccc249dd
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:3252e5a2185582b84bb5f5fcae6b4907dcd6011144947d6d452761f3ccc249dd
-  preresolved: true
-- image: index.docker.io/velero/velero-plugin-for-aws@sha256:edfb14403fc4ee45ac99f34930125869a06465c44ffacaf57e351e477e2c6b53
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:edfb14403fc4ee45ac99f34930125869a06465c44ffacaf57e351e477e2c6b53
-  preresolved: true
-- image: index.docker.io/velero/velero@sha256:7f758f88a70ec989cd5a09e1e6dfe6d625b37680eb4acc724eca01b01b5fbddc
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:7f758f88a70ec989cd5a09e1e6dfe6d625b37680eb4acc724eca01b01b5fbddc
-  preresolved: true
-- image: index.docker.io/vsphereveleroplugin/velero-plugin-for-vsphere@sha256:5773fb1b77a9f9af3705ebfdec97cb4bd207acc391209521706ba62dae80aa38
-  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/velero-bundle@sha256:5773fb1b77a9f9af3705ebfdec97cb4bd207acc391209521706ba62dae80aa38
+- image: index.docker.io/bitnami/kube-state-metrics@sha256:23ef14782f09e268a5dd65e0fda2910705787beb537b2bb84a993e5087664793
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/kube-state-metrics-bundle@sha256:23ef14782f09e268a5dd65e0fda2910705787beb537b2bb84a993e5087664793
   preresolved: true
