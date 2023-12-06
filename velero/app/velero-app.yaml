@@ -22,3 +22,12 @@ metadata:
     pod-security.kubernetes.io/enforce: privileged
     kubernetes.io/metadata.name: #@ namespace
   name: #@ namespace
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velero-vsphere-plugin-config
+  namespace: #@ namespace
+data:
+  cluster_flavor: GUEST
