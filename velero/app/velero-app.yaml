@@ -1,0 +1,24 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:template", "template")
+#@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage", "helmApp")
+
+#@ name = "velero-app"
+#@ namespace = "velero"
+#@ chart_name = "velero"
+#@ chart_url = "oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts"
+#@ package_name = "velero/app"
+#@ git_ref = "origin/main"
+#@ git_subpath = "velero/artifacts"
+#@ git_repo = "https://github.com/tsfrt/gitops-example"
+#@ lock_file = "velero.lock.copied" 
+
+--- #@ template.replace(helmApp(name, namespace, chart_name, chart_url, package_name, git_ref, git_subpath, git_repo, lock_file))
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+    kubernetes.io/metadata.name: #@ namespace
+  name: #@ namespace

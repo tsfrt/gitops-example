@@ -26,3 +26,6 @@ packages:
   - name: harbor/app
     version: 1.13.0
     values: harbor-values
+  - name: velero/app
+    version: 5.1.6
+    values: velero-values
