@@ -26,5 +26,5 @@ packages:
   - name: gatekeeper/app
     version: 3.14.0
     values: gatekeeper-values
-  - name: rbac/developers
+  - name: rbac/developer
  
