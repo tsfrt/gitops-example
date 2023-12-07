@@ -17,6 +17,7 @@ spec:
         package DenyNamespace
 
         violation[{"msg": msg}] {
+          print(input.review.userInfo.group)
           not contains(input.review.userInfo.group, "developers")
           msg := sprintf("you cant use namespace: %v", [input.review.object.metadata.namespace])
         }
