@@ -3,6 +3,9 @@ apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
   name: denyrestrictednamespaceaccess
+  namespace: gatekeeper
+  annotations:
+    kapp.k14s.io/change-group: "policy"
 spec:
   crd:
     spec:
@@ -21,6 +24,9 @@ apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: DenyRestrictedNamespaceAccess
 metadata:
   name: denyrestrictednamespaceaccess
+  namespace: gatekeeper
+  annotations:
+    kapp.k14s.io/change-rule: "upsert after upserting policy"
 spec:
   match:
     namespaces:
