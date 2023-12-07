@@ -23,9 +23,6 @@ packages:
   - name: grafana
     version: 9.5.1+vmware.2-tkg.1
     values: grafana-default-values
-  - name: harbor/app
-    version: 1.13.0
-    values: harbor-values
   - name: gatekeeper/app
     version: 3.14.0
     values: gatekeeper-values
