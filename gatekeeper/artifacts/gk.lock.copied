@@ -1,0 +1,22 @@
+apiVersion: kbld.k14s.io/v1alpha1
+kind: Config
+minimumRequiredVersion: 0.37.4
+overrides:
+- image: curlimages/curl:7.83.1
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/gatekeeper-bundle@sha256:e83fef2d5a036d40df4ded829141e8c0ec41871490d252fb8c81cb4580ebb35b
+  preresolved: true
+- image: openpolicyagent/gatekeeper-crds:v3.14.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/gatekeeper-bundle@sha256:29140a154b51f70555488382f6edb6e8f9e33e9b01d064b127d0c887503295b6
+  preresolved: true
+- image: openpolicyagent/gatekeeper:v3.14.0
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/gatekeeper-bundle@sha256:3599798fe596f9d4ccf066808719e5cb0363953a808c130a82bd9991f2d682a9
+  preresolved: true
+- image: index.docker.io/curlimages/curl@sha256:e83fef2d5a036d40df4ded829141e8c0ec41871490d252fb8c81cb4580ebb35b
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/gatekeeper-bundle@sha256:e83fef2d5a036d40df4ded829141e8c0ec41871490d252fb8c81cb4580ebb35b
+  preresolved: true
+- image: index.docker.io/openpolicyagent/gatekeeper-crds@sha256:29140a154b51f70555488382f6edb6e8f9e33e9b01d064b127d0c887503295b6
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/gatekeeper-bundle@sha256:29140a154b51f70555488382f6edb6e8f9e33e9b01d064b127d0c887503295b6
+  preresolved: true
+- image: index.docker.io/openpolicyagent/gatekeeper@sha256:3599798fe596f9d4ccf066808719e5cb0363953a808c130a82bd9991f2d682a9
+  newImage: harbor.build.h2o-2-18171.h2o.vmware.com/charts/gatekeeper-bundle@sha256:3599798fe596f9d4ccf066808719e5cb0363953a808c130a82bd9991f2d682a9
+  preresolved: true

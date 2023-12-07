@@ -1,0 +1,17 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  creationTimestamp: "2023-12-06T23:00:01Z"
+  labels:
+    run.tanzu.vmware.com/vmware-system-synced-from-supervisor: "yes"
+  name: vmware-system-auth-sync-wcp:tap-lab:group:vsphere.local:devops
+  resourceVersion: "30363970"
+  uid: 38951a8a-d9d2-4160-9b65-c09989d69b29
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: sso:developer@vsphere.local
