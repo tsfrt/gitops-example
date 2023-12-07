@@ -1,0 +1,28 @@
+---
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: denyrestrictednamespaceaccess
+spec:
+  crd:
+    spec:
+      names:
+        kind: DenyRestrictedNamespaceAccess
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package DenyNamespace
+
+        violation[{"msg": msg}] {
+          not contains(input.review.userInfo.group, "developers")
+          msg := sprintf("you cant use namespace: %v", [input.review.object.metadata.namespace])
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: DenyRestrictedNamespaceAccess
+metadata:
+  name: denyrestrictednamespaceaccess
+spec:
+  match:
+    namespaces:
+      - kube-system
+      - package-repo
