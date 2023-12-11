@@ -55,4 +55,23 @@ initContainers:
       name: plugins
 ```
 
+
+### Helm app
+
+Note that `lock_file` is set to none to prevent tags from being set to digests
+
+```
+#@ name = "velero-app"
+#@ namespace = "velero"
+#@ chart_name = "velero"
+#@ chart_url = "oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts"
+#@ package_name = "velero/app"
+#@ git_ref = "origin/main"
+#@ git_subpath = "velero/artifacts"
+#@ git_repo = "https://github.com/tsfrt/gitops-example"
+#@ lock_file = None
+```
+
 see the values file secret example [valero-values-secert.yaml](cluster-config/shared-services/velero-values-secret.yaml)
+
+
