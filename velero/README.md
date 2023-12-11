@@ -61,7 +61,7 @@ initContainers:
 Note that `lock_file` is set to none to prevent tags from being set to digests
 
 ```
-#@ name = "velero-app"
+#@ name = "velero"  <--- deployment must be named velero
 #@ namespace = "velero"
 #@ chart_name = "velero"
 #@ chart_url = "oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts"
@@ -69,7 +69,7 @@ Note that `lock_file` is set to none to prevent tags from being set to digests
 #@ git_ref = "origin/main"
 #@ git_subpath = "velero/artifacts"
 #@ git_repo = "https://github.com/tsfrt/gitops-example"
-#@ lock_file = None
+#@ lock_file = None  <--- lock file not set
 ```
 
 see the values file secret example [valero-values-secert.yaml](cluster-config/shared-services/velero-values-secret.yaml)
