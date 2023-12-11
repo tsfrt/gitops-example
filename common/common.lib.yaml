@@ -38,6 +38,8 @@ kind: App
 metadata:
   name: #@ name
   namespace: package-repo
+  annotations:
+    kapp.k14s.io/change-group: #@ name
 spec:
   deploy:
   - kapp:

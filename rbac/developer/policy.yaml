@@ -5,7 +5,7 @@ metadata:
   name: denyrestrictednamespaceaccess
   namespace: gatekeeper
   annotations:
-    kapp.k14s.io/change-group: "policy"
+    kapp.k14s.io/change-rule: "upsert after upserting gatekeeper-app"
 spec:
   crd:
     spec:
@@ -28,7 +28,7 @@ metadata:
   name: denyrestrictednamespaceaccess.constraints.gatekeeper.sh
   annotations:
     kapp.k14s.io/exists: ""
-    kapp.k14s.io/change-group: "policy"
+    kapp.k14s.io/change-rule: "upsert after upserting gatekeeper-app"
 spec:
   group: constraints.gatekeeper.sh
   versions:
@@ -42,7 +42,7 @@ metadata:
   name: denyrestrictednamespaceaccess
   namespace: gatekeeper
   annotations:
-    kapp.k14s.io/change-rule: "upsert after upserting policy"
+    kapp.k14s.io/change-rule: "upsert after upserting gatekeeper-app"
 spec:
   enforcementAction: warn
   match:
