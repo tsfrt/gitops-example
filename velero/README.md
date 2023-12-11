@@ -58,7 +58,11 @@ initContainers:
 
 ### Helm app
 
-Note that `lock_file` is set to none to prevent tags from being set to digests
+Note that 
+
+`lock_file` is set to none to prevent tags from being set to digests
+
+`name` must be velero, not velero-app or velero-helm
 
 ```
 #@ name = "velero"  <--- deployment must be named velero
