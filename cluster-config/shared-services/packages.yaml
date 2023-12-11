@@ -20,9 +20,6 @@ packages:
   - name: prometheus
     version: 2.43.0+vmware.2-tkg.1
     values: prometheus-default-values
-  - name: gatekeeper/app
-    version: 3.14.0
-    values: gatekeeper-values
   - name: velero/app
     version: 5.1.6
     values: velero-values
