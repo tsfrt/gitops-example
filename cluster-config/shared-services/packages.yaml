@@ -23,4 +23,7 @@ packages:
   - name: gatekeeper/app
     version: 3.14.0
     values: gatekeeper-values
+  - name: velero/app
+    version: 5.1.6
+    values: velero-values
  
