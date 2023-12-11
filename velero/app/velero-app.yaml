@@ -2,7 +2,7 @@
 #@ load("@ytt:template", "template")
 #@ load("common.lib.yaml", "getVersionByPackage", "getValuesByPackage", "helmApp")
 
-#@ name = "velero-app"
+#@ name = "velero"
 #@ namespace = "velero"
 #@ chart_name = "velero"
 #@ chart_url = "oci://harbor.build.h2o-2-18171.h2o.vmware.com/charts"
