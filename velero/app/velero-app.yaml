@@ -10,7 +10,7 @@
 #@ git_ref = "origin/main"
 #@ git_subpath = "velero/artifacts"
 #@ git_repo = "https://github.com/tsfrt/gitops-example"
-#@ lock_file = "velero.lock.copied" 
+#@ lock_file = None
 
 --- #@ template.replace(helmApp(name, namespace, chart_name, chart_url, package_name, git_ref, git_subpath, git_repo, lock_file))
 
